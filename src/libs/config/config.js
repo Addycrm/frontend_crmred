@@ -1,4 +1,7 @@
-export const URL_LOCAL = "http://127.0.0.1:8000/"
+// variables.js
+export const URL_LOCAL = process.env.NODE_ENV === 'production'
+    ? 'https://crmred.co/'
+    : 'http://127.0.0.1:8000/';
 
 export const ROLES_ADMIN = "administrator";
 export const ROLES_AGENTE = "agente_elite";
