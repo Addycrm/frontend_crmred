@@ -1,7 +1,7 @@
 const HELPERS = {
   URL_API: process.env.NODE_ENV === 'production'
-  ? 'https://crmred.co/'
-  : 'http://127.0.0.1:8000/',
+  ? 'https://crmred.co'
+  : 'http://127.0.0.1:8000',
 
   isValidHttpUrl(string) {
     let url;
