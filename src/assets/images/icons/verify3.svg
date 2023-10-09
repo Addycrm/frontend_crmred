@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<title>verify (3)</title>
+	<defs>
+		<image  width="24" height="24" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAAXNSR0IB2cksfwAAAKJQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////BC52ggAAADZ0Uk5TAA5qWwVcDcT/1UjWw0FAB7NDyOlCA+vqAgb7+s2Z/NI+7llPPU33yUzieRbH4XXg0cbXwmtUKGcV7gAAAMhJREFUeJx9kn0fQkAMx+chRkSoKERJKnru/b+1HLkO5ffP9vnubrfbBlCL4wURQBzxErQlIyqqOkbU2lxHqgnLDfMbMI2GTi0bW7Ith/DZHHtauGXAW/YDK5Fc8fsBv3ojYEgYrIkJCI9ihm9gS2ycAOzSFuf2lZdmcKjZ8ZRXPP+cKaConTNwMsPxAlnaZHEZXqaCJKb5KY8jptwwuNIqqnL/fvBnS7yhJoKTd9t+04cHNTRaAA3xrqoK4qOzJdLzVVYiCnR93my+FcJWPfzTAAAAAElFTkSuQmCC"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="0"/>
+</svg>
