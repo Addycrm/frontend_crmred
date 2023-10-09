@@ -663,7 +663,7 @@ import loadingBar from "@/views/componente/loadingBar.vue";
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
 import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
 
-
+import {  HELPERS} from "@/libs/helpers";
 export default {
   name: "TableInmueble",
   mixins: [mixinApis, mixinPortales, mixinConfig],
@@ -1005,7 +1005,7 @@ export default {
       // this.query.filterOrden= select
     },
     showAgente(url){
-      const urlAgente = process.env.MIX_API_URL+"perfil/agente/"+url
+      const urlAgente = HELPERS.MIX_API_URL+"perfil/agente/"+url
       return urlAgente
     },
 

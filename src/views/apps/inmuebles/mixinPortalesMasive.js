@@ -25,8 +25,6 @@ export default {
                         publicate: "api/auth/service/pais/sincronizar",
                         depublicate:"api/auth/service/pais/desactivar"
                     }
-                    
-    
                 },
                 {
                     id:3,
@@ -36,7 +34,7 @@ export default {
                         publicate: "api/auth/service/metro_cuadrado",
                         depublicate:"api/auth/service/metro_cuadrado/despublicar"
                     }
-    
+
                 },
                 {
                     id:4,
@@ -45,7 +43,7 @@ export default {
                     url:{
                         publicate:"api/auth/service/cienciuadra",
                         depublicate:"api/auth/service/cienciuadra/desactivar"
-                    }                    
+                    }
                 },
                 {
                     id:5,
@@ -54,7 +52,7 @@ export default {
                     url:{
                         publicate:"api/auth/prippit/publicar",
                         depublicate:"api/auth/subportales-externo"
-                    } 
+                    }
                 },
                 {
                     id:6,
@@ -63,7 +61,7 @@ export default {
                     url:{
                         publicate:"api/auth/portales/mercadolibre/sincronizar",
                         depublicate:"api/auth/portales/mercadolibre/despublicar"
-                    } 
+                    }
                 }
             ]
         }
@@ -79,7 +77,7 @@ export default {
     mounted() {
         this.portales = this.appPortal
     },
-    
+
     methods:{
         // SELECCIONAMOS LOS PORTALES QUE FALTAN POR PUBLICAR EN _portales
         selectPortales(portales,inmueble){
@@ -91,7 +89,7 @@ export default {
             });
             this.validatePortal(_portales,inmueble)
         },
-    
+
     async validatePortal(portales,inmueble){
         // COMENZAMOS A SINCRONIZAR EN LOS PORTALEES
         portales.map(async (item)=>{
@@ -100,7 +98,7 @@ export default {
             })
             //INDICA QUE ESTA CARGANDO
             this.$refs[item.name][0].innerHTML = ""
-            this.$refs[item.name][0].innerHTML = 
+            this.$refs[item.name][0].innerHTML =
             `
             <div class="spinner-border" role="status">
                 <span class="sr-only">Loading...</span>
@@ -108,7 +106,7 @@ export default {
             `
             let options = {
                 title:'Sincronizar Inmueble' ,
-                icon:'info' 
+                icon:'info'
                 ,
                 showCancelButton: true,
                 customClass: {
@@ -177,7 +175,7 @@ export default {
                                 errorMessage:"Validar que el numero de imagenes del inmueble sea menor o igual a 30, Validar el año de construcción."
                             }
                             break;
-                    
+
                         default:
                             errorMessage = (res.error.response.data)?res.error.response.data:res.error.message;
                             break;
@@ -186,7 +184,7 @@ export default {
                             portal:portalSelect.name,
                             error:errorMessage
                         })
-                    
+
                     this.$refs[item.name][0].innerHTML = ""
                     this.$refs[item.name][0].innerHTML =
                     `
@@ -201,8 +199,8 @@ export default {
                     </svg>
                     `
                 }
-            }catch(error){  
-            } 
+            }catch(error){
+            }
         })
     },
     async getLocalidadesCiencuadra(city) {

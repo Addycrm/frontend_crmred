@@ -56,7 +56,7 @@ import ProfileHeader from "./ProfileHeader.vue";
 import ProfilePost from "./ProfilePost.vue";
 import ProfileBilletera from "./ProfileBilletera";
 import Ripple from "vue-ripple-directive";
-
+import { HELPERS } from "@/libs/helpers";
 /* eslint-disable global-require */
 export default {
   components: {
@@ -90,7 +90,7 @@ export default {
   methods: {
     doCopy() {
       this.message =
-         process.env.MIX_API_URL + "register/" + this.tprofileData.referral_code;
+         HELPERS.MIX_API_URL + "register/" + this.tprofileData.referral_code;
       this.$copyText(this.message).then(
         () => {
           this.$toast({

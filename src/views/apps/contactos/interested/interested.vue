@@ -18,10 +18,10 @@
                 Contactos: <b class="text-primary">{{ interested.to }}</b> de
                 <b>{{ interested.total }}</b>
             </div>
-            <b-table 
-                v-if="interested.data" striped hover responsive class="position-relative" 
+            <b-table
+                v-if="interested.data" striped hover responsive class="position-relative"
                 :busy="isBusy"
-                :items="interested.data" 
+                :items="interested.data"
                 :fields="fields">
                 <template #table-busy>
                     <div class="text-center text-danger my-2">
@@ -120,8 +120,9 @@
 
 <script>
 // vista loading
+import { HELPERS } from "@/libs/helpers";
 import loadingContact from "@/views/componente/loadingContact.vue";
-const API = process.env.MIX_API_URL + 'api/auth/cliente_interested';
+const API = HELPERS.MIX_API_URL + 'api/auth/cliente_interested';
 export default {
 
     data() {

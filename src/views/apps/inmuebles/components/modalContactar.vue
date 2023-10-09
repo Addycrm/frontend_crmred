@@ -3,7 +3,7 @@
     <div class="container-card" v-if="agent.userdata!=null">
       <p class="card-text">{{ agent.userdata.primer_nombre }}</p>
       <a :href="(agent.userdata !=null)?showAgente(agent.userdata.slug):''" target="_blank">
-        <b-avatar class="mr-1 card-iamge" size="12rem"  :src="agent.userdata.foto_persona" />      
+        <b-avatar class="mr-1 card-iamge" size="12rem"  :src="agent.userdata.foto_persona" />
       </a>
     </div>
     <div>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import {HELPERS } from "@/libs/helpers"
 
 export default {
   name: "modalContactar",
@@ -62,14 +63,14 @@ export default {
       },
     };
   },
-  
+
   methods: {
     info(item, button) {
       this.infoModal.content = item;
       this.$root.$emit("bv::show::modal", this.infoModal.id, button);
     },
     showAgente(url){
-      const urlAgente = process.env.MIX_API_URL+"perfil/agente/"+url
+      const urlAgente = HELPERS.API_URL+"perfil/agente/"+url
       return urlAgente
     },
 
@@ -85,7 +86,7 @@ export default {
           phone = cont.userdata.celular_movil
           email = cont.email
       }
-     
+
       switch (social) {
         case "whatsapp":
           window.open(`https://wa.me/+57${phone}`, "_blank");

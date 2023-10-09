@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueSocialauth from 'vue-social-auth'
+import { HELPERS } from './helpers'
 
 Vue.use(VueSocialauth, {
 
@@ -11,7 +12,7 @@ Vue.use(VueSocialauth, {
       },
       google: {
         clientId: "855760450791-s4jpuef4anqh003s5p83h29iqigg9sk1.apps.googleusercontent.com",
-        redirectUri:process.env.MIX_API_URL + "auth/google/callback", // Your client app URL
+        redirectUri:HELPERS.MIX_API_URL + "auth/google/callback", // Your client app URL
       }
     }
   })

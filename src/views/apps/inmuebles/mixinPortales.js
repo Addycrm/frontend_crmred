@@ -1,3 +1,4 @@
+import { HELPERS } from "@/libs/helpers";
 import ToastificationContent from "@core/components/toastification/ToastificationContent.vue";
 export default {
     data() {
@@ -76,7 +77,7 @@ export default {
             let { inmueble, portal, name, slug, localidad } = value;
             let message = ' Tu Inmueble ha sido publicado exitosamente en este portal, puedes verlo en 1 Hora habilitado.';
             switch (slug) {
-                case process.env.MIX_FINCARRAIZ:
+                case HELPERS.MIX_FINCARRAIZ:
                     Object.assign(value, {
                         config:
                             sync == 'create' ?
@@ -96,7 +97,7 @@ export default {
                     });
                     break;
                 //  El Pais
-                case process.env.MIX_MERCADOLIBRE:
+                case HELPERS.MIX_MERCADOLIBRE:
                     Object.assign(value, {
                         config:
                             sync == 'create' ?
@@ -115,7 +116,7 @@ export default {
                                     }
                     });
                     break;
-                case process.env.MIX_CLASIFICADO_PAIS:
+                case HELPERS.MIX_CLASIFICADO_PAIS:
                     Object.assign(value, {
                         config:
                             sync == 'create' ?
@@ -135,7 +136,7 @@ export default {
                     });
                     break;
                 // Metro Cuadrado
-                case process.env.MIX_METROCUADRADO:
+                case HELPERS.MIX_METROCUADRADO:
                     Object.assign(value, {
                         config:
                             sync == 'create' ?
@@ -155,7 +156,7 @@ export default {
                     });
                     break;
                 // Ciencuadras
-                case process.env.MIX_CIENCUADRA:
+                case HELPERS.MIX_CIENCUADRA:
                     Object.assign(value, {
                         config:
                             sync == 'create' ?
@@ -177,7 +178,7 @@ export default {
                                     }
                     });
                     break;
-                case process.env.MIX_PROPPIT:
+                case HELPERS.MIX_PROPPIT:
                     message = ' Tu Inmueble ha sido publicado exitosamente en este portal, puedes verlo en 24 Horas habilitado.'
                     Object.assign(value, {
                         config:

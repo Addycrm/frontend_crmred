@@ -462,7 +462,7 @@ import vistaDetail from '@/views/apps/inmuebles/components/vistas/vistaDetail.vu
 //desplegables
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
 import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
-
+import { HELPERS } from "@/libs/helpers";
   export default {
     name: "TableInmueble",
     mixins: [mixinApis, mixinPortales, mixinConfig],
@@ -919,7 +919,7 @@ import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
       },
 
       portalesState(current, inmueble) {
-        if (process.env.MIX_PROPPIT != current.slug) {
+        if (HELPERS.MIX_PROPPIT != current.slug) {
           Object.assign(this.portal, { state: true, current, inmueble });
         } else {
           this.$refs.subportalesComponent.info(

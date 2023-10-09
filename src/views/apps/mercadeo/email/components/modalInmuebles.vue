@@ -373,7 +373,7 @@ import vSelect from "vue-select";
 import Ripple from "vue-ripple-directive";
 import { quillEditor } from "vue-quill-editor";
 import Templates from "@/views/templates/templates.vue";
-
+import { HELPERS } from "@/libs/helpers";
 export default {
   name: "edictRole",
   components: {
@@ -405,7 +405,7 @@ export default {
   },
   data() {
     return {
-      path: process.env.MIX_API_URL + "private/inmuebles/",
+      path: HELPERS.MIX_API_URL + "private/inmuebles/",
       isBusy: false,
       show_spinner_sin: false,
       selectMode: "single",

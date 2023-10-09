@@ -78,7 +78,7 @@ import ProfilePost from "./ProfilePost.vue";
 import ProfileBilletera from "./ProfileBilletera";
 import ToastificationContent from "@core/components/toastification/ToastificationContent.vue";
 import Ripple from "vue-ripple-directive";
-
+import { HELPERS } from "@/libs/helpers";
 /* eslint-disable global-require */
 export default {
   components: {
@@ -112,7 +112,7 @@ export default {
   methods: {
     doCopy() {
       this.message =
-         process.env.MIX_API_URL + "register/" + this.tprofileData.referral_code;
+         HELPERS_API_URL + "register/" + this.tprofileData.referral_code;
       this.$copyText(this.message).then(
         () => {
           this.$toast({
