@@ -123,12 +123,6 @@
                 </div>
               </b-col>
             </b-row>
-
-            <!-- password -->
-
-            <!-- checkbox -->
-
-            <!-- reset and submit -->
             <b-col cols="12">
               <b-button
                 v-ripple.400="'rgba(255, 255, 255, 0.15)'"
@@ -149,8 +143,8 @@
 </template>
 
 <script>
-const CLIENT_ID = process.env.MIX_CLIENT_ID_GOOGE_CALENDAR;
-const API_KEY = process.env.MIX_API_KEY_GOOGE_CALENDAR;
+const CLIENT_ID = HELPERS.MIX_CLIENT_ID_GOOGE_CALENDAR;
+const API_KEY = HELPERS.MIX_API_KEY_GOOGE_CALENDAR;
 
 const DISCOVERY_DOCS = [
   "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
@@ -176,6 +170,7 @@ import {
   VBToggle,
 } from "bootstrap-vue";
 import Ripple from "vue-ripple-directive";
+import { HELPERS } from "@/libs/helpers";
 
 export default {
   name: "googleData",

@@ -294,7 +294,7 @@ export default {
                 buttonsStyling: false,
             };
 
-            if (value.slug == process.env.MIX_CIENCUADRA && sync == 'create') {
+            if (value.slug == HELPERS.MIX_CIENCUADRA && sync == 'create') {
                 await this.getLocalidadesCiencuadra(ciudad_id.id);
                 Object.assign(options, {
                     input: 'select',

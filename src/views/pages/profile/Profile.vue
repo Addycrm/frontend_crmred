@@ -112,7 +112,7 @@ export default {
   methods: {
     doCopy() {
       this.message =
-         HELPERS_API_URL + "register/" + this.tprofileData.referral_code;
+         HELPERS.API_URL + "register/" + this.tprofileData.referral_code;
       this.$copyText(this.message).then(
         () => {
           this.$toast({

@@ -159,15 +159,16 @@
                         <b-form-group label="Orden por precio" label-size="sm" class="mb-0">
                             <v-select v-model="query.filterPrice" :reduce="(type) => type.value"
                                 :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'" :options="optionsType" label="text" />
+                                .
                         </b-form-group>
                     </div>
                 </div>
                 <div v-if="!elegir" class="d-flex flex-column col-sm-12 col-md-auto align-items-center px-0">
                     <div class="col-auto p-0">
                         <legend class="bv-no-focus-ring col-form-label pt-0  col-form-label-sm" style="margin-left:7px;
-            margin-bottom: 2px;
-          ">Vistas</legend>
-                        <div class="d-flex flex-wrap">
+                            margin-bottom: 2px;
+                        ">Vistas</legend>
+                        <div class="d-flex flex-wrap" style="{ padding: 12px; margin-bottom: 12px }">
                             <!-- BOTON VISTA DETAIL LIST -->
                             <b-col cols="auto" class="px-10 pb-10 pt-0 d-flex showDisable" v-b-tooltip.hover
                                 title="Vista detalle">
@@ -368,11 +369,11 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Ver Ficha" pill variant="outline-primary"
                                         v-if="$can('read', 'inmuebles')" @click="modalFicha(props.row)" class="
-                    d-flex
-                    justify-content-center
-                    align-items-center
-                    m-10
-                  " size="sm">
+                                            d-flex
+                                            justify-content-center
+                                            align-items-center
+                                            m-10
+                                        " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" :style="{
                                             width: '1.25em',
                                             height: '1em',
@@ -384,11 +385,11 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Generar informe" pill variant="outline-primary"
                                         @click="modalInforme(props.row)" class="
-                    d-flex
-                    justify-content-center
-                    align-items-center
-                    m-10
-                  " size="sm">
+                                            d-flex
+                                            justify-content-center
+                                            align-items-center
+                                            m-10
+                                        " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
                                             width: '1.25em',
                                             height: '1em',
@@ -400,11 +401,11 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Cambiar estado publicación" pill
                                         variant="outline-primary" @click="openModalStateProperty(props.row)" class="
-                    d-flex
-                    justify-content-center
-                    align-items-center
-                    m-10
-                  " size="sm">
+                                        d-flex
+                                        justify-content-center
+                                        align-items-center
+                                        m-10
+                                    " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
                                             width: '1.25em',
                                             height: '1em',
@@ -461,14 +462,6 @@
                                                     </template>
 
                                                     <div class="item_buttons item_buttons-outline">
-                                                        <!-- <button class="btn btn-primary btn-sm" @click="publicationMasive(props.row)">
-                              Publicación<br>
-                              Masiva
-                            </button>
-                            <button class="btn btn-warning btn-sm" @click="DepublicationMasive(props.row)">
-                              Despublicación<br>
-                              Masiva
-                            </button> -->
                                                         <b-dropdown variant="primary" class="container_dropdown"
                                                             id="dropdown-1" dropright>
                                                             <template #button-content>
@@ -1351,6 +1344,7 @@ export default {
 </style>
 
 <style scoped lang="css">
+
 .bounce-enter-active {
     animation: bounce-in 0.5s;
 }

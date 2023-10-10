@@ -13,8 +13,8 @@ Vue.component("VueSocialSharing", VueSocialSharing);
 import VueFlatPickr from 'vue-flatpickr-component';
 Vue.use(VueFlatPickr)
 
-// import VueSweetalert2 from 'vue-sweetalert2';
-// Vue.use(VueSweetalert2);
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
 
 import { BootstrapVue } from 'bootstrap-vue'
 Vue.use(BootstrapVue)

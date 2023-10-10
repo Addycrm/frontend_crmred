@@ -11,8 +11,10 @@
 </template>
 
 <script>
-const CLIENT_ID = process.env.MIX_CLIENT_ID_GOOGE_CALENDAR;
-const API_KEY = process.env.MIX_API_KEY_GOOGE_CALENDAR;
+import { HELPERS } from '@/libs/helpers';
+
+const CLIENT_ID = HELPERS.MIX_CLIENT_ID_GOOGE_CALENDAR;
+const API_KEY = HELPERS.MIX_API_KEY_GOOGE_CALENDAR;
 
 const DISCOVERY_DOCS = [
   "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",

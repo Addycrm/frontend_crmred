@@ -6,136 +6,50 @@
             </router-link>
         </header>
         <section class="container-main">
-            <svg id="bg-services" width="100%" viewBox="0 0 1000 800">
-                <defs>
-                    <linearGradient id="PSgrad_02" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
-                        <stop offset="240%" stop-color="#8541ff" stop-opacity="1" />
-                        <stop offset="100%" stop-color="#f0beff" stop-opacity="1" />
-                    </linearGradient>
-                </defs>
-                <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_02)"
-                    d="M801.878,3.146 L116.381,128.537 C26.052,145.060 -21.235,229.535 9.856,312.073 L159.806,710.157 C184.515,775.753 264.901,810.334 338.020,792.380 L907.021,652.668 C972.912,636.489 1019.383,573.766 1011.301,510.470 L962.013,124.412 C951.950,45.594 881.254,-11.373 801.878,3.146 Z" />
-            </svg>
-            <div class="container_text">
-                <h2 class="title">POLÍTICA DE PRIVACIDAD</h2>
-                <p class="text">
-                    La siguiente Política de Privacidad describe cómo CRMRED recopila, utiliza y protege la información
-                    personal y las imágenes proporcionadas por los usuarios de nuestra aplicación móvil. Al utilizar La
-                    Aplicación, aceptas los términos y condiciones de esta Política de Privacidad.
 
+            <div class="container-local">
+                <h1>Política de Privacidad de CRMRED</h1>
+                <p><strong>Última actualización: 10-10-2023</strong></p>
+                <p>La presente Política de Privacidad tiene como objetivo informarte sobre cómo CRMRED recopila, utiliza y
+                    comparte tus datos personales y confidenciales. Es importante que leas y comprendas esta política antes
+                    de utilizar nuestra aplicación. Al instalar y usar CRMRED, aceptas expresamente los términos y
+                    condiciones de esta política.</p>
 
-                </p>
+                <h2>Recopilación de Datos</h2>
+                <p>CRMRED recopila, transmite, sincroniza y almacena ciertos tipos de datos con el fin de habilitar las
+                    siguientes funciones:</p>
+                <ul>
+                    <li>Lista de contactos para registrar clientes de una forma rápida, con el fin de mejorar la venta de
+                        inmuebles del agente.</li>
+                </ul>
+                <p>La recopilación de datos es esencial para proporcionar una experiencia óptima en nuestra aplicación.</p>
 
-                <h3 class="subtitle">
-                    1. Información que Recopilamos
-                </h3>
-                <h4 class="subtitle">
-                    1.1. Información Personal
-                </h4>
-                <p class="text">
-                    Cuando importas clientes desde tu dispositivo móvil, podemos recopilar la siguiente información
-                    personal, que puede incluir, entre otros datos:
+                <h2>Uso de Datos</h2>
+                <p>Los datos recopilados por CRMRED se utilizan exclusivamente para los fines mencionados anteriormente. No
+                    compartimos tus datos personales y confidenciales con terceros sin tu consentimiento expreso.</p>
 
-                    - Nombre
-                    - Dirección de correo electrónico
-                    - Número de teléfono
-                    - Fotografías de identificación
-                    - Otra información relevante para la gestión de clientes
+                <h2>Divulgación Destacada</h2>
+                <p>Esta divulgación destacada se encuentra dentro de la aplicación y se muestra durante el uso normal de la
+                    misma. No requerirás navegar a un menú o configuración para acceder a esta información.</p>
 
-                </p>
-                <h4 class="subtitle">
-                    1.2. Imágenes y Contenido Multimedia
-                </h4>
-                <p class="text">
-                    La Aplicación puede acceder a imágenes y contenido multimedia almacenados en tu dispositivo móvil para
-                    proporcionar servicios relacionados con la gestión de clientes. Esta información puede incluir, entre
-                    otros datos:
+                <h2>Solicitud de Consentimiento del Usuario</h2>
+                <p>Para garantizar la transparencia y el consentimiento inequívoco, requiere una acción afirmativa del
+                    usuario para recopilar o acceder a datos personales y confidenciales. Debes tocar para aceptar o marcar
+                    una casilla de verificación claramente visible.</p>
+                <p>La navegación fuera de esta divulgación, incluyendo tocar o presionar el botón Atrás o Inicio, no se
+                    interpretará como consentimiento. No utilizamos mensajes que se descarten automáticamente o que caduquen
+                    como medio para obtener tu consentimiento. Debes otorgar tu consentimiento antes de que CRMRED pueda
+                    comenzar a recopilar o acceder a tus datos personales y confidenciales.</p>
 
-                    - Fotografías de clientes
-                    - Documentos escaneados
-                    - Otros archivos multimedia relacionados con la gestión de clientes
+                <h2>Cambios en la Política de Privacidad</h2>
+                <p>Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Cualquier cambio
+                    será notificado a los usuarios a través de una actualización en la aplicación.</p>
 
-                </p>
-                <h4 class="subtitle">
-                    2. Uso de la Información
-                </h4>
-                <p class="text">
-                    Utilizamos la información recopilada para los siguientes fines:
-                </p>
-                <h4 class="subtitle">
-                    2.1. Gestión de Clientes
-                </h4>
-                <p class="text">
-                    Utilizamos la información personal y las imágenes para gestionar y organizar tus clientes de manera
-                    eficiente dentro de La Aplicación.
-
-                </p>
-
-                <h4 class="subtitle">
-                    2.2. Mejora de la Experiencia del Usuario
-                </h4>
-                <p class="text">
-                    Podemos utilizar la información para mejorar la funcionalidad y la experiencia del usuario de La
-                    Aplicación, así como para personalizar nuestros servicios según tus preferencias.
-                </p>
-                <h4 class="subtitle">
-                    2.3. Comunicación
-                </h4>
-                <p class="text">
-                    Podemos utilizar tu dirección de correo electrónico o número de teléfono para enviarte comunicaciones
-                    relacionadas con La Aplicación, como actualizaciones, notificaciones importantes o información sobre
-                    nuestros servicios.
-                </p>
-                <h4 class="subtitle">
-                    3. Compartir Información
-                </h4>
-                <p class="text">
-
-                    No compartiremos tu información personal o imágenes con terceros, excepto en las siguientes
-                    circunstancias:
-
-                    - Cuando tengamos tu consentimiento explícito para hacerlo.
-                    - Cuando sea necesario cumplir con las leyes y regulaciones aplicables.
-                    - Para proteger nuestros derechos, privacidad, seguridad o propiedad, así como la de nuestros usuarios y
-                    el público en general.
-
-
-                </p>
-                <h4 class="subtitle">
-                    4. Seguridad de la Información
-                </h4>
-                <p class="text">
-                    Tomamos medidas razonables para proteger la información personal y las imágenes de los usuarios contra
-                    accesos no autorizados o divulgación. Sin embargo, no podemos garantizar la seguridad absoluta de los
-                    datos transmitidos a través de Internet o almacenados en nuestros sistemas.
-                </p>
-                <h4 class="subtitle">
-                    5. Cambios en la Política de Privacidad
-                </h4>
-                <p class="text">
-                    Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Te
-                    notificaremos cualquier cambio significativo a través de la Aplicación o por otros medios.
-                </p>
-                <h4 class="subtitle">
-                    5. Cambios en la Política de Privacidad
-                </h4>
-                <p class="text">
-                    Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Te
-                    notificaremos cualquier cambio significativo a través de la Aplicación o por otros medios.
-                </p>
-                <h4 class="subtitle">
-                    6. Contacto
-                </h4>
-                <p class="text">
-                    Si tienes alguna pregunta, comentario o inquietud relacionada con esta Política de Privacidad, por favor
-                    contáctanos a través de soporte@crmred.co.
-
-                    Al utilizar La Aplicación, aceptas los términos y condiciones de esta Política de Privacidad. Asegúrate
-                    de revisar esta política regularmente para estar al tanto de cualquier cambio.
-
-                </p>
-
+                <h2>Contacto</h2>
+                <p>Si tienes alguna pregunta o inquietud sobre esta política, no dudes en contactarnos en Calle 5 85-29 o <a
+                        href="mailto:contacto@crmred.co">contacto@crmred.co</a>.</p>
             </div>
+
         </section>
 
 
@@ -165,6 +79,14 @@ export default {
 .container-main {
     position: relative;
 }
+.container-local {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
 .container_text {
     position: absolute;
@@ -190,5 +112,4 @@ export default {
 .text {
     text-align: justify;
     color: black;
-}
-</style>
+}</style>

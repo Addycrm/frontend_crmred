@@ -1,42 +1,4 @@
 <template>
-    <!-- <div>
-    <h2>informe propietario</h2>
-    <b-form-group  label="Email">
-      <b-form-input id="h-email"
-            type="email"
-            placeholder="Email"
-            v-model="emailProperty"
-            required
-            ></b-form-input>
-    </b-form-group>
-    <b-card-text>
-        <span> Tiempo de citas </span>
-      </b-card-text>
-    <b-form-group>
-      <v-select
-        v-model="selectTime"
-        :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
-        label="title"
-        :options="option"
-        required
-      />
-    </b-form-group>
-    <b-card-text>
-        <span> Seleccionar agentes </span>
-      </b-card-text>
-    <b-form-group>
-      <v-select
-        v-model="selectAgent"
-        :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'"
-        label="name"
-        :options="allAgents"
-        required
-      />
-    </b-form-group>
-    <button type="button" class="btn btn-primary" @click="sendData()"> Enviar</button>
-
-
-  </div> -->
     <div>
         <validation-observer ref="simpleRules">
             <b-form>

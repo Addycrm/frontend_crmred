@@ -1,7 +1,7 @@
 const HELPERS = {
     URL_API: process.env.NODE_ENV === 'production'
         ? 'https://crmred.co'
-        : 'http://127.0.0.1:8000',
+        : 'http://192.168.4.68:8000',
 
     MIX_METROCUADRADO: "metro_cuadrado",
     MIX_CLASIFICADO_PAIS: "clasificados_el_pais",
