@@ -143,9 +143,9 @@
                     ref="inputCelular"
                     v-model="phone.celular"
                     :error="errors.length > 0"
-                    default-country-code="CO"
+                    :default-country-code="userdata.phonecode"
                     no-flags:="true"
-                    :preferred-countries="['CO']"
+
                     @update="
                       (event) => {
                         form.celular = event.nationalNumber;
@@ -172,8 +172,7 @@
                     v-model="phone.whatsapp"
                     :error="errors.length > 0"
                     show-code-on-list
-                    default-country-code="CO"
-                    :preferred-countries="['CO']"
+                    :default-country-code="userdata.phonecode"
                     @update="(event)=>{
                       form.whatsapp = event.e164
                       }"

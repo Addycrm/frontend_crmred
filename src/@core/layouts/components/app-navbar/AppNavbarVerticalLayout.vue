@@ -22,7 +22,7 @@
             <!-- <dark-Toggler class="d-none d-lg-block" /> -->
             <!-- <search-bar /> -->
             <!-- <cart-dropdown /> -->
-            <stateMembership />
+            <!-- <stateMembership /> -->
 
             <notification-dropdown />
             <user-dropdown />

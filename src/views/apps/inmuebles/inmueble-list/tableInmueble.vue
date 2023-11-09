@@ -425,7 +425,7 @@
                                         <b-row class="m-0">
                                             <b-col class="p-10">
                                                 <ul class="portales-content-table-info-inmueble">
-                                                    <li class="active outline cursor-pointer" v-b-tooltip.hover.left.topleft
+                                                    <!-- <li class="active outline cursor-pointer" v-b-tooltip.hover.left.topleft
                                                         title="Red Fincaraiz">
                                                         <a :href="(props.row.slug) ? `https://redfincaraiz.com/properties/${props.row.slug}` : 'https://redfincaraiz.com'"
                                                             target="_blank">
@@ -435,8 +435,8 @@
                                                                 style="height: 40px;width: 70px;padding: 4px;" />
 
                                                         </a>
-                                                    </li>
-                                                    <template v-for="item in appPortal.portales">
+                                                    </li> -->
+                                                    <!-- <template v-for="item in appPortal.portales">
                                                         <li v-b-tooltip.hover.left.topleft :title="item.name" :key="item.id"
                                                             v-if="item.state === 'active'" class="outline cursor-pointer">
                                                             <template v-if="!statePortal(
@@ -479,7 +479,7 @@
                                                         </b-dropdown>
 
 
-                                                    </div>
+                                                    </div> -->
                                                 </ul>
                                             </b-col>
                                         </b-row>

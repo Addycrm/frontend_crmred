@@ -60,7 +60,7 @@
       <b-row>
         <b-col cols="12" md="6">
           <b-form-group label="Tipo de documento">
-            <v-select 
+            <v-select
               input-id="tipo_documento"
               v-model="form.identification_type"
               label="nombre"
@@ -90,8 +90,7 @@
                 v-model="phone.main_cell_phone"
                 :error="errors.length > 0"
                 show-code-on-list
-                default-country-code="CO"
-                :preferred-countries="['CO']"
+                :default-country-code="userData.phonecode"
                 @update="(event) => {
                     form.main_cell_phone = event.nationalNumber;
                     wame.number = event.e164;
@@ -117,8 +116,7 @@
                 v-model="phone.whatsapp"
                 :error="errors.length > 0"
                 show-code-on-list
-                default-country-code="CO"
-                :preferred-countries="['CO']"
+                :default-country-code="userData.phonecode"
                 @update="form.whatsapp = $event.e164"
                 :translations="{
                   countrySelectorLabel: 'Código país',
@@ -261,7 +259,7 @@ export default {
           value: null,
           options: [],
           props: {
-            api: 'appLocalidades/getStates', 
+            api: 'appLocalidades/getStates',
             name: 'Departamentos',
             label: 'Pais'
           }
@@ -324,6 +322,10 @@ export default {
     storeConfig(){
       return this.$store.state.appConfiguracion.options
     },
+
+    userData() {
+      return this.$store.state.userData.userData;
+    },
     tipo_cliente(){
       return this.$store.state.appDocumentos.tipo_cliente;
     },
@@ -372,7 +374,7 @@ export default {
       if(num !=null){
         let lengthNumber= num.replace(/\s+/g, '')
         if(lengthNumber.length>=this.exampleNumber){
-          return lengthNumber.slice(0,this.exampleNumber); 
+          return lengthNumber.slice(0,this.exampleNumber);
         }else{
           return num
         }
@@ -453,7 +455,7 @@ export default {
               if(cliente[prop]){
                 Object.assign(this.form, {
                   [prop]: cliente[prop].id ? cliente[prop].id : cliente[prop]
-                })            
+                })
               }
           }
 
@@ -470,7 +472,7 @@ export default {
 </script>
 
 <style lang="css">
-  
+
   .ql-editor{
     min-height:200px;
   }

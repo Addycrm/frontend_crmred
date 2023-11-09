@@ -1,7 +1,7 @@
 const HELPERS = {
     URL_API: process.env.NODE_ENV === 'production'
-        ? 'http://api.crmred.cl'
-        : 'http://api.crmred.cl',
+        ? 'https://api.crmred.cl'
+        : 'https://api.crmred.cl',
 
     MIX_METROCUADRADO: "metro_cuadrado",
     MIX_CLASIFICADO_PAIS: "clasificados_el_pais",

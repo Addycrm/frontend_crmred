@@ -123,19 +123,19 @@
                                         <ValidationProvider v-slot="{ errors }" rules="required">
                                             <b-form-group label="Celular" class="required">
                                                 <vue-phone-number-input ref="inputCelular" v-model="phone.celular"
-                                                    :error="errors.length > 0" show-code-on-list default-country-code="CO"
-                                                    :preferred-countries="['CO']" @update="(event) => {
+                                                    :error="errors.length > 0" show-code-on-list default-country-code="CL"
+                                                    :preferred-countries="['CL']" @update="(event) => {
                                                         form.celular = event.nationalNumber;
                                                         wame.number = event.e164;
                                                         if (wame.state)
                                                             phone.whatsapp = event.e164;
                                                         exampleLabel(event)
                                                     }" :translations="{
-    countrySelectorLabel: 'Codigo pais',
-    countrySelectorError: 'Elije un código',
-    phoneNumberLabel: 'Celular',
-    example: 'Ejemplo :',
-}" />
+                                                        countrySelectorLabel: 'Codigo pais',
+                                                        countrySelectorError: 'Elije un código',
+                                                        phoneNumberLabel: 'Celular',
+                                                        example: 'Ejemplo :',
+                                                    }" />
                                             </b-form-group>
                                         </ValidationProvider>
                                     </b-col>
@@ -143,8 +143,8 @@
                                         <ValidationProvider v-slot="{ errors }" rules="required">
                                             <b-form-group label="WhatsApp" class="required">
                                                 <vue-phone-number-input ref="whatsapp" v-model="phone.whatsapp"
-                                                    :error="errors.length > 0" show-code-on-list default-country-code="CO"
-                                                    :preferred-countries="['CO']" @update="form.whatsapp = $event.e164"
+                                                    :error="errors.length > 0" show-code-on-list default-country-code="CL"
+                                                    :preferred-countries="['CL']" @update="form.whatsapp = $event.e164"
                                                     :translations="{
                                                         countrySelectorLabel: 'Codigo pais',
                                                         countrySelectorError: 'Elije un código',
@@ -161,7 +161,7 @@
                             </ValidationObserver>
                         </b-col>
                     </tab-content>
-
+<!--
 
                     <tab-content title="Seleccionar Plan" :before-change="validateFormPlan">
                         <b-col>
@@ -170,15 +170,15 @@
                                     @selectPlan="selectPlan" />
                             </ValidationObserver>
                         </b-col>
-                    </tab-content>
-                    <tab-content title="Escoger metodo de pago" :before-change="validateFormPago">
+                    </tab-content> -->
+                    <!-- <tab-content title="Escoger metodo de pago" :before-change="validateFormPago">
                         <b-col>
                             <ValidationObserver ref="wizardFormPlan">
                                 <paymentMethod :propsSelect="planDefault"></paymentMethod>
-                                <!-- <plansMembership :propsSelect="{enableBtn:true,enableDefaultPlan:this.planDefault}" @selectPlan="selectPlan"/> -->
+                                 <plansMembership :propsSelect="{enableBtn:true,enableDefaultPlan:this.planDefault}" @selectPlan="selectPlan"/>
                             </ValidationObserver>
                         </b-col>
-                    </tab-content>
+                    </tab-content> -->
 
                 </form-wizard>
                 <v-modal v-if="stateCropImage" @close="closeModal" ref="modalInmueble" titulo="Imagen de perfil" responsive
@@ -464,6 +464,7 @@ export default {
             return new Promise((resolve, reject) => {
                 this.$refs.wizardFormBasica.validate().then(success => {
                     if (success) {
+                        this.sendFormRegister()
                         resolve(true)
                     } else {
                         reject()
@@ -472,28 +473,28 @@ export default {
                 })
             })
         },
-        validateFormPlan() {
-            return new Promise((resolve, reject) => {
+        // validateFormPlan() {
+        //     return new Promise((resolve, reject) => {
 
-                if (this.planDefault) {
-                    //   this.sendFormRegister()
-                    resolve(true)
-                } else {
-                    reject()
-                }
-            })
-        },
-        validateFormPago() {
-            return new Promise((resolve, reject) => {
-                const transaction = this.$store.getters['appPayment/getTransaction'];
-                if (transaction != null) {
-                    this.sendFormRegister()
-                    resolve(true)
-                } else {
-                    reject()
-                }
-            })
-        },
+        //         if (this.planDefault) {
+        //             //   this.sendFormRegister()
+        //             resolve(true)
+        //         } else {
+        //             reject()
+        //         }
+        //     })
+        // },
+        // validateFormPago() {
+        //     return new Promise((resolve, reject) => {
+        //         const transaction = this.$store.getters['appPayment/getTransaction'];
+        //         if (transaction != null) {
+        //             this.sendFormRegister()
+        //             resolve(true)
+        //         } else {
+        //             reject()
+        //         }
+        //     })
+        // },
         redirigirWhatsApp() {
             // Número de teléfono al que deseas enviar un mensaje en WhatsApp
             var numeroTelefono = '3183749090';
@@ -595,7 +596,7 @@ export default {
 
     },
     created() {
-        this.$root.$on('sendUserForm', this.validateFormPago);
+        this.$root.$on('sendUserForm', this.validateFormBasic);
     }
 };
 </script>

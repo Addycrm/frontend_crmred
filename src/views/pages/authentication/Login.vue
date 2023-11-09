@@ -1,5 +1,5 @@
 .<template>
-  <div class="auth-wrapper auth-v1 px-2">
+  <div class="auth-wrapper auth-v1 px-8">
     <div class="auth-inner py-2">
       <b-overlay :show="overlay" rounded="sm">
         <!-- Reset Password v1 -->
@@ -97,7 +97,7 @@
       </b-overlay>
     </div>
     <div class="logoLogin">
-      <img src="https://res.cloudinary.com/dumnq4c3n/image/upload/v1691097448/Recurso_5_2x_c2hbwd.png" alt="">
+      <img :src="banner" alt="">
     </div>
   </div>
 </template>
@@ -154,6 +154,8 @@ export default {
       email: "",
       personalID: "",
       picture: "",
+      banner: require("@/assets/images/logo_paises/chile.png"),
+
       sideImg: require("@/assets/images/pages/login.svg"),
       imageLogo: require("@/assets/images/logo/logo_crmred.png"),
     };
@@ -300,7 +302,7 @@ export default {
 
   .logoLogin{
   display: block;
-  width: 60%;
+  width: 80%;
   height: 100%;
   padding-bottom: 252px;
 }

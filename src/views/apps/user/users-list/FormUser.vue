@@ -62,8 +62,8 @@
                     <ValidationProvider v-slot="{ errors }" rules="required">
                         <b-form-group label="Celular" class="required">
                             <vue-phone-number-input ref="inputCelular" v-model="phone.celular_movil"
-                                :error="errors.length > 0" show-code-on-list default-country-code="CO"
-                                :preferred-countries="['CO']" @update="(event) => {
+                                :error="errors.length > 0" show-code-on-list :default-country-code="userdata.phonecode"
+                                @update="(event) => {
                                     form.celular_movil = event.nationalNumber;
                                     wame.number = event.e164;
                                     if (wame.state) phone.celular_whatsapp = event.e164;
@@ -82,8 +82,8 @@
                     <ValidationProvider v-slot="{ errors }" rules="required">
                         <b-form-group label="WhatsApp" class="required">
                             <vue-phone-number-input ref="whatsapp" v-model="phone.celular_whatsapp"
-                                :error="errors.length > 0" show-code-on-list default-country-code="CO"
-                                :preferred-countries="['CO']" @update="form.celular_whatsapp = $event.e164" :translations="{
+                                :error="errors.length > 0" show-code-on-list :default-country-code="userdata.phonecode"
+                                @update="form.celular_whatsapp = $event.e164" :translations="{
                                     countrySelectorLabel: 'Código país',
                                     countrySelectorError: 'Elije un código',
                                     phoneNumberLabel: 'WhatsApp',
@@ -229,7 +229,7 @@ export default {
         },
         'phone.celular_whatsapp'() {
             this.phone.celular_whatsapp = this.validateLengthNum(this.phone.celular_whatsapp)
-        }
+        },
     },
     computed: {
         storeConfig() {
@@ -238,6 +238,11 @@ export default {
         roles() {
             return this.$store.state.appUser.roles_users;
         },
+
+        userdata() {
+            return this.$store.state.userData.userData;
+        },
+
     },
     mounted() {
 
