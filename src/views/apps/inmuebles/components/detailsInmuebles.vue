@@ -57,8 +57,8 @@
                     Historial
                   </b-button>
                 </b-nav-item>
-                <b-nav-item v-show="!inmueble.mls">
-                  <b-button  
+                <!-- <b-nav-item v-show="!inmueble.mls">
+                  <b-button
                     size="md"
                     class="m-1 btn_open-modal"
                     variant="outline-primary"
@@ -74,7 +74,7 @@
                   >
                     Sincronizar
                   </b-button>
-                </b-nav-item>
+                </b-nav-item> -->
                 <b-nav-item  v-show="!inmueble.mls">
                   <b-button
                     size="md"
@@ -138,7 +138,7 @@
           >
             Historial
           </b-button>
-          <b-button
+          <!-- <b-button
             v-if="!inmueble.mls"
             size="md"
             class="m-1 btn_open-modal hover__btn-primary"
@@ -154,7 +154,7 @@
             "
           >
             Sincronizar
-          </b-button>
+          </b-button> -->
           <b-button
             v-if="!inmueble.mls"
             size="md"
@@ -230,7 +230,7 @@
             <div class="col">
               <h1 class="tituloInmueble">
                 <span class="id-inmueble">ID: {{ inmueble.id }}</span>
-                <span v-if="$can('show_created_inmueble', 'inmuebles')" 
+                <span v-if="$can('show_created_inmueble', 'inmuebles')"
                   class="text-info_created text-info_created-color">
                     <span v-if=" inmueble.created_by.userdata">
                         Creado por:
@@ -477,7 +477,7 @@
                 <app-collapse accordion>
                   <template v-for="(feature,index) in arrayFeatures">
                     <template v-if="inmueble[feature.namePath]">
-                      <app-collapse-item v-if="inmueble[feature.namePath].length>0" :title="feature.nameMayus" :key="index" 
+                      <app-collapse-item v-if="inmueble[feature.namePath].length>0" :title="feature.nameMayus" :key="index"
                       :styleProps="{
                         backgroundColor:'white',
                         border:'2px solid var(--primary)',
@@ -1218,7 +1218,7 @@ ul.attrList li.itemAttrList {
     font-size: 0.9rem;
     margin: 4px !important;
   }
-  
+
 
   .tituloInmueble,.id-inmueble,.cpanel-inmueble,.tituloDetalleInmueble{
     font-size: 1rem !important;
