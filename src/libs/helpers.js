@@ -9,7 +9,7 @@ const HELPERS = {
     MIX_FINCARRAIZ: "fincaraiz",
     MIX_PROPPIT: "proppit",
 
-    MIX_API_GOOGLE_KEY_MAP: "",
+    MIX_API_GOOGLE_KEY_MAP: "AIzaSyB-e9MP04V0fVjgSBRr3HMxhK7exGOc1qM",
     MIX_CLIENT_ID_GOOGE_CALENDAR: "",
     MIX_API_KEY_GOOGE_CALENDAR: "",
 
