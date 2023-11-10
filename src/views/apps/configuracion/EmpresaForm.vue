@@ -91,7 +91,7 @@
                         </b-col>
                         <b-col ms="12" md="6" ls="4" xl="4">
                             <b-form-group label="Celular" class="required">
-                                <ValidationProvider v-slot="{ errors }" :rules="`required|min:${exampleNumber}`">
+                                <ValidationProvider v-slot="{ errors }" :rules="`required`">
                                     <vue-phone-number-input ref="inputCelular" :default-country-code="userdata.phonecode"
                                         :error="errors.length > 0" v-model="form.celular" @update="(event) => {
                                             form.celular = event.nationalNumber;
