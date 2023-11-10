@@ -2,10 +2,10 @@
     <div id="SliderInmuebleDetail">
         <div class="slider" ref="slider">
             <div v-for="(item, i) in items" :key="i" class="itemsSlider carousel__slide"
-                :data-src="imgValidateURL(item.url)" data-fancybox="gallery">
+                :data-src="item.url" data-fancybox="gallery">
                 <figure class="imageSlider m-0 imageSlider__main">
 
-                    <img :src="imgValidateURL(item.url)" alt="" class="image-card__slider">
+                    <img :src="item.url" alt="" class="image-card__slider">
 
                 </figure>
             </div>
@@ -13,7 +13,7 @@
         <div class="sliderThumbnails" ref="sliderThumbnails">
             <div v-for="(item, i) in items" :key="i" class="itemsSlider carousel__slide">
                 <figure class="imageSlider m-0">
-                        <img :src="imgValidateURL(item.url)" alt="">
+                        <img :src="item.url" alt="">
                 </figure>
             </div>
         </div>
