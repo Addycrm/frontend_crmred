@@ -1696,10 +1696,9 @@ export default {
         async deleteImage(image) {
             this.btnDelete = true;
             let formData = new FormData();
-            formData.append("json", JSON.stringify(image));
 
             await this.$http
-                .post("api/auth/api-inmueble/del-image", formData)
+                .post("api/auth/api-inmueble/del-image", image)
                 .then((response) => {
                     this.form.inmueble_imagenes = this.form.inmueble_imagenes.filter(
                         (item) => {

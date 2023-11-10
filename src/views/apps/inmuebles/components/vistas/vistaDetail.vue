@@ -3,12 +3,7 @@
     <b-col class="p-10 col-sm-auto">
       <figure class="table-info-inmueble-thumbnail cursor-pointer">
         <template v-if="props.row.inmueble_imagenes[0]">
-          <cld-image v-if="props.row.inmueble_imagenes[0].url.indexOf( 'cloudinary' ) != -1" 
-            :public-id="props.row.inmueble_imagenes[0].url | urlImages ">
-            <cld-transformation gravity="center" width="80" height="120" crop="thumb" />
-          </cld-image>
-          <img v-else :src="
-            imgValidateURL(props.row.inmueble_imagenes[0].url)
+          <img :src="props.row.inmueble_imagenes[0].url
           " alt="" />
         </template>
         <template v-else>
@@ -33,7 +28,7 @@
               }})
             </b>
             <br/>
-            <b v-if="$can('show_created_inmueble', 'inmuebles')" 
+            <b v-if="$can('show_created_inmueble', 'inmuebles')"
             class="text-info_created text-info_created-color">
               <span v-if=" props.row.created_by.userdata">
                   Creado por:
@@ -56,7 +51,7 @@
               </b-badge>
             </template>
             <b-dropdown-item v-for="item in storeConfig.state_property" :key="item.id"
-              :disabled="props.row.state_inmueble.id == item.id" 
+              :disabled="props.row.state_inmueble.id == item.id"
               @click="
                 stateProperty({
                   state: item.id,
@@ -188,7 +183,7 @@ export default {
       imgValidateURL
     }
   },
-  
+
   components: {
 
   },
