@@ -2,31 +2,6 @@ export default [
   {
     header: 'MODULOS REDCRM',
   },
-  // {
-  //   title: 'Modulo personas',
-  //   icon: 'UserIcon',
-  //   action: 'read',
-  //   resource: 'referidos',
-  //   children: [
-  //     {
-  //       title: 'Lista',
-  //       route: 'apps-persona-list',
-  //     },
-  //     {
-  //       title: 'Vista previa',
-  //       route: { name: 'apps-persona-preview', params: { id: 3242 } },
-  //     },
-  //     {
-  //       title: 'Editar',
-  //       route: { name: 'apps-persona-edit', params: { id: 4934 } },
-  //     },
-  //     {
-  //       title: 'Mas',
-  //       route: { name: 'apps-persona-add' },
-  //     },
-  //   ],
-  // },
-
 
   {
     title: "Inmuebles",
@@ -299,7 +274,7 @@ export default [
   {
     title: "Configuracion",
     icon: "SettingsIcon",
-    tagVariant: "light-warning",
+    tagVariant: "success",
     route: "apps-configuration",
     action: "read",
     resource: "configuration",
@@ -342,14 +317,6 @@ export default [
 
     ]
   },
-  {
-    title: "Plataformas digitales",
-    icon: "ChromeIcon",
-    tagVariant: "light-warning",
-    action: "read",
-    route: "apps-plataform",
-    resource: "configuration"
-  }
 
   // CRM
 

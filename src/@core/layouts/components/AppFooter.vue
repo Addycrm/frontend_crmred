@@ -6,7 +6,7 @@
           class="ml-25"
           href="https://crmred.co"
           target="_blank"
-        >Redcrm</b-link>
+        >{{ appName }}</b-link>
         <span class="d-none d-sm-inline-block">, Derechos reservados</span>
       </span>
       <b-link href="https://wa.link/hl3jes" target="_blank">
@@ -27,6 +27,15 @@
   export default {
     components: {
       BLink,
+    },
+
+    setup() {
+        const { appName, appLogoImage } = $themeConfig.app;
+
+        return {
+            appLogoImage,
+            appName
+        }
     },
   }
   </script>
