@@ -186,15 +186,7 @@ export default [
     action: "read",
     resource: "perfil_agente",
   },
-  {
-    title: "Transacciones",
-    icon: "DollarSignIcon",
-    tagVariant: "light-warning",
-    route: "transactions-agente",
-    action: "read",
-    resource: "transaction",
-  },
-  
+
   {
     title: 'Tareas',
     route: 'apps-todo',

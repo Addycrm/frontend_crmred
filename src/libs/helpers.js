@@ -1,7 +1,7 @@
 const HELPERS = {
     URL_API: process.env.NODE_ENV === 'production'
-        ? 'https://homiup.com'
-        : 'https://homiup.com',
+        ? 'https://admin.homiup.com'
+        : 'http://192.168.4.185:8000',
 
     MIX_METROCUADRADO: "metro_cuadrado",
     MIX_CLASIFICADO_PAIS: "clasificados_el_pais",
