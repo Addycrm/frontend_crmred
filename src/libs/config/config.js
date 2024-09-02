@@ -1,6 +1,6 @@
 // variables.js
 export const URL_LOCAL = process.env.NODE_ENV === 'production'
-    ? 'https://crmred.co/'
+    ? 'https://admin.homiup.com/'
     : 'http://127.0.0.1:8000/';
 
 export const ROLES_ADMIN = "administrator";
