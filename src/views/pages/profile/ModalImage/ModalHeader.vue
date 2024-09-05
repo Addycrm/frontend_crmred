@@ -6,12 +6,12 @@
       ok-title="Accept"
       modal-class="modal-primary"
       centered
-      title="Gestion de Crmred"
+      title="Gestion de Homiup"
       size="lg"
     >
       <b-container>
         <b-row class="match-height">
-        kygyjgi8gu
+        
         </b-row>
       </b-container>
     </b-modal>

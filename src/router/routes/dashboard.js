@@ -77,16 +77,16 @@ export default [
   },
 
 
-  {
-    path: '/inicio',
-    name: 'inicio-home',
-    component: () => import('@/views/inicio/inicio.vue'),
-    meta: {
-      layout: 'full',
-      resource: 'Auth',
-      redirectIfLoggedIn: false,
-    },
-  },
+  // {
+  //   path: '/inicio',
+  //   name: 'inicio-home',
+  //   component: () => import('@/views/inicio/inicio.vue'),
+  //   meta: {
+  //     layout: 'full',
+  //     resource: 'Auth',
+  //     redirectIfLoggedIn: true,
+  //   },
+  // },
 
   {
     path: '/inmobiliaria',

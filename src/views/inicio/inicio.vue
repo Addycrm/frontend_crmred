@@ -217,7 +217,7 @@
                         </p>
                         <div class="row my-2 btns-store">
                             <div class="col-auto"><a :style="{ background: 'none', padding: 0, margin: 0 }"
-                                    href="https://play.google.com/store/apps/details?id=com.crmred.crmred"
+                                    href="https://play.google.com/store/apps/details?id=com.homiup.homiup"
                                     target="_blank"><img src="./img/btn-play-store.png" alt="" class="img-fluid"></a></div>
                             <div class="col-auto">
                                 <img src="./img/btn-app-store.png" alt="" class="img-fluid">

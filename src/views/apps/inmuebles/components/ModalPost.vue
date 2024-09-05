@@ -218,7 +218,7 @@
             <small :style="{color: this.colorPrecio}"
               >Desarrollado por:
               <span style=" text-decoration: underline" :style="{color: this.colorPrecio}"
-                >www.crmred.co</span
+                >www.homiup.com</span
               ></small
             >
           </footer>
@@ -344,7 +344,7 @@
               <p :style="{color: this.colorFuente}"
                 >Desarrollado por:
                 <span 
-                  >www.crmred.co</span
+                  >https://homiup.com</span
                 ></p>
             </div>
           </div>

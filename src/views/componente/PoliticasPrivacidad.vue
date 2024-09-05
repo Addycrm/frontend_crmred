@@ -8,15 +8,15 @@
         <section class="container-main">
 
             <div class="container-local">
-                <h1>Política de Privacidad de CRMRED</h1>
+                <h1>Política de Privacidad de HOMIUP</h1>
                 <p><strong>Última actualización: 10-10-2023</strong></p>
-                <p>La presente Política de Privacidad tiene como objetivo informarte sobre cómo CRMRED recopila, utiliza y
+                <p>La presente Política de Privacidad tiene como objetivo informarte sobre cómo HOMIUP recopila, utiliza y
                     comparte tus datos personales y confidenciales. Es importante que leas y comprendas esta política antes
-                    de utilizar nuestra aplicación. Al instalar y usar CRMRED, aceptas expresamente los términos y
+                    de utilizar nuestra aplicación. Al instalar y usar HOMIUP, aceptas expresamente los términos y
                     condiciones de esta política.</p>
 
                 <h2>Recopilación de Datos</h2>
-                <p>CRMRED recopila, transmite, sincroniza y almacena ciertos tipos de datos con el fin de habilitar las
+                <p>HOMIUP recopila, transmite, sincroniza y almacena ciertos tipos de datos con el fin de habilitar las
                     siguientes funciones:</p>
                 <ul>
                     <li>Lista de contactos para registrar clientes de una forma rápida, con el fin de mejorar la venta de
@@ -25,7 +25,7 @@
                 <p>La recopilación de datos es esencial para proporcionar una experiencia óptima en nuestra aplicación.</p>
 
                 <h2>Uso de Datos</h2>
-                <p>Los datos recopilados por CRMRED se utilizan exclusivamente para los fines mencionados anteriormente. No
+                <p>Los datos recopilados por HOMIUP se utilizan exclusivamente para los fines mencionados anteriormente. No
                     compartimos tus datos personales y confidenciales con terceros sin tu consentimiento expreso.</p>
 
                 <h2>Divulgación Destacada</h2>
@@ -38,7 +38,7 @@
                     una casilla de verificación claramente visible.</p>
                 <p>La navegación fuera de esta divulgación, incluyendo tocar o presionar el botón Atrás o Inicio, no se
                     interpretará como consentimiento. No utilizamos mensajes que se descarten automáticamente o que caduquen
-                    como medio para obtener tu consentimiento. Debes otorgar tu consentimiento antes de que CRMRED pueda
+                    como medio para obtener tu consentimiento. Debes otorgar tu consentimiento antes de que HOMIUP pueda
                     comenzar a recopilar o acceder a tus datos personales y confidenciales.</p>
 
                 <h2>Cambios en la Política de Privacidad</h2>
@@ -47,7 +47,7 @@
 
                 <h2>Contacto</h2>
                 <p>Si tienes alguna pregunta o inquietud sobre esta política, no dudes en contactarnos en Calle 5 85-29 o <a
-                        href="mailto:contacto@crmred.co">contacto@crmred.co</a>.</p>
+                        href="mailto:contacto@HOMIUP.co">contacto@HOMIUP.co</a>.</p>
             </div>
 
         </section>

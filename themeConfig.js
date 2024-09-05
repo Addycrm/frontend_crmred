@@ -9,7 +9,7 @@ export const $themeBreakpoints = {}
 // APP CONFIG
 export const $themeConfig = {
   app: {
-    appName: 'crmred', // Will update name in navigation menu (Branding)
+    appName: 'homiup', // Will update name in navigation menu (Branding)
     // eslint-disable-next-line global-require
     appLogoImage: require('@/assets/images/logo/logo-homiup.svg'), // Will update logo in navigation menu (Branding)
   },

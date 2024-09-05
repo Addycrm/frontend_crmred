@@ -6,7 +6,7 @@
       ok-title="Accept"
       modal-class="modal-primary"
       centered
-      title="Gestion de crmred"
+      title="Gestion de HOMIUP"
       size="lg"
     >
       <b-container>

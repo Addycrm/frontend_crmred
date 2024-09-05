@@ -72,7 +72,7 @@
                 </ValidationProvider>
                 <div>
                   <span>Dominio: </span>
-                  <span>{{form.slug}}.inmob.site</span>
+                  <span>{{form.slug}}.homiup.com</span>
                 </div>
               </b-form-group>
             </b-col>

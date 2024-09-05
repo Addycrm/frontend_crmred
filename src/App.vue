@@ -5,7 +5,7 @@
         <router-view />
       </component>
       <a
-        href="mailto:soporte@crmred.co"
+        href="mailto:soporte@homiup.com"
         class="float"
         target="_blank"
         v-b-tooltip.hover title="Soporte técnico!"

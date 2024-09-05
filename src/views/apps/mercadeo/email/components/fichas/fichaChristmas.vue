@@ -700,7 +700,7 @@
                                                                                                         <span style="color: #474747; font-family: 'Trebuchet ms', helvetica, sans-serif;">
 
                                                                                                             <strong>
-                                                                                                                CRMRED © 2022 | CRM RED
+                                                                                                                homiup © 2022 | CRM RED
                                                                                                             </strong>
 
                                                                                                         </span>

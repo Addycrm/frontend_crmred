@@ -4,12 +4,12 @@
         COPYRIGHT  © {{ new Date().getFullYear() }}
         <b-link
           class="ml-25"
-          href="https://crmred.co"
+          href="https://app.homiup.com"
           target="_blank"
         >{{ appName }}</b-link>
         <span class="d-none d-sm-inline-block">, Derechos reservados</span>
       </span>
-      <b-link href="https://wa.link/hl3jes" target="_blank">
+      <b-link href="#" target="_blank">
       <span class="float-md-right d-none d-md-block">Soporte
         <feather-icon
           icon="SettingsIcon"

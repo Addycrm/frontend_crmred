@@ -121,7 +121,7 @@
                                 </b-form-group>
                             </b-col>
                             <b-col cols="12" md="3">
-                                <b-form-group label="Código CRMRED">
+                                <b-form-group label="Código HOMIUP">
                                     <b-form-input :value="query.id" @change="setQuery('id', $event)" placeholder="Código..."
                                         name="code" type="text" trim />
                                 </b-form-group>

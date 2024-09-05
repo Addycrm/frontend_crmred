@@ -262,7 +262,7 @@
                                                                                             <tr>
                                                                                                 <td align="center" valign="top" class="r35-i nl2go-default-textstyle" style="font-family: arial,helvetica,sans-serif; color: #3b3f44; font-size: 18px; line-height: 1.5; text-align: center;">
                                                                                                     <div>
-                                                                                                        <p style="margin: 0; font-size: 14px;"><span style="font-family: 'Trebuchet ms', helvetica, sans-serif;"><strong>CRMRED © 2022 | CRM RED</strong></span></p>
+                                                                                                        <p style="margin: 0; font-size: 14px;"><span style="font-family: 'Trebuchet ms', helvetica, sans-serif;"><strong>HOMIUP © 2022 | CRM RED</strong></span></p>
                                                                                                     </div>
                                                                                                 </td>
                                                                                             </tr>
