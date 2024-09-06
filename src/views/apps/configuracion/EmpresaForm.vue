@@ -63,7 +63,7 @@
               <b-form-group label="URL de la empresa" class="required">
                 <ValidationProvider v-slot="{ errors }" rules="required">
                   <b-input-group
-                    append=".inmob.site" 
+                    append=".homiup.com" 
                     class="input-group-merge"
                   >
                     <b-form-input :state="errors.length > 0 ? false : null" id="slug_empresa" name="slug_empresa"

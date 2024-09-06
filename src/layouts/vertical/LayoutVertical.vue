@@ -33,16 +33,10 @@ export default {
   },
   setup() {
     return {
-      state: false,
+      state: true,
     }
   },
   data() {
-
-    this.api.push({
-      api: 'appConfiguracion/getOptionsSelect',
-      data: {},
-      then: () => { this.state = true }
-    });
 
     return {
       showCustomizer: $themeConfig.layout.customizer,

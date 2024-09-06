@@ -437,7 +437,7 @@ export default {
     // this.colorSecundario=this.inmueble.user_id.empresa.color_secundario;
   },
   mounted() {
-    this.url_web = `https://${this.inmueble.user_id.empresa.slug}.inmob.site/inmuebles/detalle/${this.inmueble.slug}`;
+    this.url_web = `https://${this.inmueble.user_id.empresa.slug}.homiup.com/inmuebles/detalle/${this.inmueble.slug}`;
     this.ChangeColorFont()
     this.ChangeColorBackground()
   },

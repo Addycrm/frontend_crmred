@@ -23,7 +23,7 @@ import others from './routes/others'
 
 Vue.use(VueRouter)
 
-let route = "";
+let route = "auth-login";
 let user = localStorage.getItem("userData");
 if (localStorage.getItem("userData") != null) {
     user = JSON.parse(user);
