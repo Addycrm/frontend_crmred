@@ -1,5 +1,5 @@
-import {axiosIns} from '@/libs/axios'
-import {ROLES_VISITANTE } from "@/libs/config/config.js";
+import { axiosIns } from '@/libs/axios'
+import { ROLES_VISITANTE } from "@/libs/config/config.js";
 import Swal from 'sweetalert2'
 
 export default {
@@ -30,18 +30,18 @@ export default {
     SET_OPTIONS: (state, value) => {
       state.options = value
     },
-    UPDATE_FEATURES:(state, value)=>{
-      let index=state.options[value.path].findIndex((item)=>{
+    UPDATE_FEATURES: (state, value) => {
+      let index = state.options[value.path].findIndex((item) => {
         return item.id === value.data.id
       })
-      Object.assign(state.options[value.path][index],value.data)
+      Object.assign(state.options[value.path][index], value.data)
     },
     SET_TAG: (state, value) => {
       state.tags.etiquetas.push(value)
     },
 
     SET_TAGS: (state, value) => {
-      for(let prop in state.tags){
+      for (let prop in state.tags) {
         state.tags[prop] = value[prop];
       }
     },
@@ -55,7 +55,7 @@ export default {
       state.dominio = val
     },
     SET_URL(state, dominio) {
-      
+
       state.url = `https://www.${dominio}/`
     }
   },
@@ -64,52 +64,52 @@ export default {
     getEmpresa(ctx, agente) {
       return new Promise(resolve => {
         let user = localStorage.userData;
-        if(user){
+        if (user) {
           user = JSON.parse(user);
-          if(user.role.slug !== ROLES_VISITANTE && Object.keys(ctx.state.configuracion).length == 0){
+          if (user.role.slug !== ROLES_VISITANTE && Object.keys(ctx.state.configuracion).length == 0) {
             axiosIns.get("api/auth/agente/empresa")
-            .then(res => {
-              let {empresa, dominio} = res.data.data;
-              if(empresa){
-                ctx.commit("SET_URL", `${empresa.slug}.${dominio}`);
-                ctx.commit("SET_DOMINIO", `${empresa.slug}.${dominio}`);
-                ctx.commit("SET_CONFIGURATION", empresa);
-              }
-              resolve(true);
-            }).catch(err => {
-              console.error(err);
-              resolve(false);
-            });
-          }else{
+              .then(res => {
+                let { empresa, dominio } = res.data.data;
+                if (empresa) {
+                  ctx.commit("SET_URL", `${empresa.slug}.${dominio}`);
+                  ctx.commit("SET_DOMINIO", `${empresa.slug}.${dominio}`);
+                  ctx.commit("SET_CONFIGURATION", empresa);
+                }
+                resolve(true);
+              }).catch(err => {
+                console.error(err);
+                resolve(false);
+              });
+          } else {
             resolve(true);
           }
-        }else{
+        } else {
           resolve(false);
         }
       });
     },
-    getOptionsSelect(ctx){
-      return new Promise (resolve => {
+    getOptionsSelect(ctx) {
+      return new Promise(resolve => {
         axiosIns({
           url: 'api/external/helpers',
-          method: 'get'
+          method: 'get',
         }).then(res => {
-          ctx.commit('SET_OPTIONS', res.data.data);
-          resolve(true);
+          ctx.commit('SET_OPTIONS', res.data.data)
+          resolve(true)
         }).catch(err => {
-          let {status} = err.response;
-          if(status == 500){
+          const { status } = err.response
+          if (status === 500) {
             Swal.fire({
-              title: "Algo salio mal!",
+              title: 'Algo salio mal!',
               text: 'Ocurrio un error inesperado actualiza el navegador. Si el problema persiste comunicate con soporte.',
-              icon: "error",
+              icon: 'error',
               confirmButtonText: 'Actualizar',
               customClass: {
                 confirmButton: "btn btn-danger",
               },
               buttonsStyling: false,
             }).then(res => {
-              if(res.isConfirmed)
+              if (res.isConfirmed)
                 location.reload();
             });
           }
@@ -121,18 +121,18 @@ export default {
     getEmpresas(ctx) {
       return new Promise(resolve => {
         axiosIns.get("api/auth/agente/empresas")
-        .then(res => {
-          ctx.commit("SET_EMPRESAS", res.data.data.empresas);
-          resolve(true);
-        }).catch(err => {
-          console.error(err);
-          resolve(false);
-        });
+          .then(res => {
+            ctx.commit("SET_EMPRESAS", res.data.data.empresas);
+            resolve(true);
+          }).catch(err => {
+            console.error(err);
+            resolve(false);
+          });
       });
     },
-    getTaskTag(ctx){
-      return new Promise (resolve => {
-        if(ctx.state.tags.etiquetas.length == 0){
+    getTaskTag(ctx) {
+      return new Promise(resolve => {
+        if (ctx.state.tags.etiquetas.length == 0) {
           axiosIns({
             url: 'api/external/helpers-agent-task',
             method: 'get'
@@ -141,7 +141,7 @@ export default {
             ctx.commit('SET_TAGS', data);
             resolve(data);
           }).catch(error => console.error(error));
-        }else{
+        } else {
           resolve();
         }
       })
@@ -149,43 +149,43 @@ export default {
     addEmpresa(ctx, data) {
       return new Promise((resolve, reject) => {
         axiosIns.post("api/auth/agente/empresas", data)
-        .then((response) => {
-          resolve(response);
-        }).catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response);
+          }).catch((error) => {
+            reject(error);
+          });
       });
     },
 
     updateEmpresa(data) {
       return new Promise((resolve, reject) => {
         axiosIns.put(`api/auth/agente/empresas/${data.id}`, data)
-        .then((response) => {
-          ctx.commit("SET_CONFIGURATION", response.data.data.empresa);
-          resolve(response.data.data.empresa);
-        })
-        .catch((error) => {
-          reject(error);
-        });
-      });
-    },
-
-/*===============*/
-    
-
-    getDominio(ctx, agente) {
-      return new Promise((resolve, reject) => {
-        if(!ctx.state.url){
-          axiosIns.get(`api/auth/agente/empresa`)
           .then((response) => {
-            const { dominio } = response.data.data
-            ctx.commit("SET_DOMINIO", dominio);
-            ctx.commit("SET_URL", dominio);
-            resolve(dominio);
+            ctx.commit("SET_CONFIGURATION", response.data.data.empresa);
+            resolve(response.data.data.empresa);
           })
           .catch((error) => {
             reject(error);
           });
+      });
+    },
+
+    /*===============*/
+
+
+    getDominio(ctx, agente) {
+      return new Promise((resolve, reject) => {
+        if (!ctx.state.url) {
+          axiosIns.get(`api/auth/agente/empresa`)
+            .then((response) => {
+              const { dominio } = response.data.data
+              ctx.commit("SET_DOMINIO", dominio);
+              ctx.commit("SET_URL", dominio);
+              resolve(dominio);
+            })
+            .catch((error) => {
+              reject(error);
+            });
         }
       });
     },
@@ -194,85 +194,85 @@ export default {
     getEmpresasForId(ctx) {
       return new Promise((resolve, reject) => {
         axiosIns.get("api/auth/agente/empresas")
-        .then((response) => {
-          ctx.commit("SET_EMPRESAS", response.data.data.empresas);
-          resolve(response.data.data.empresas);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            ctx.commit("SET_EMPRESAS", response.data.data.empresas);
+            resolve(response.data.data.empresas);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     addEmpresasEmails(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.post(`api/auth/agente/empresas/emails/${agente}`)
-        .then((response) => {
-          resolve(response.data.data.emails);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.emails);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     getEmpresasEmails(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.get(`api/auth/agente/empresas/emails${agente}`)
-        .then((response) => {
-          resolve(response.data.data.emails);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.emails);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     addEmpresasNumbers(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.post(`api/auth/agente/empresas/numbers/${agente}`)
-        .then((response) => {
-          resolve(response.data.data.number);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.number);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     getEmpresasNumbers(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.get(`api/auth/agente/empresas/numbers/${agente}`)
-        .then((response) => {
-          resolve(response.data.data.number);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.number);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     addEmpresasRedes(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.post(`api/auth/agente/empresas/redes/${agente}`)
-        .then((response) => {
-          resolve(response.data.data.redes);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.redes);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
 
     getEmpresasRedes(agente) {
       return new Promise((resolve, reject) => {
         axiosIns.get(`api/auth/agente/empresas/redes/${agente}`)
-        .then((response) => {
-          resolve(response.data.data.redes);
-        })
-        .catch((error) => {
-          reject(error);
-        });
+          .then((response) => {
+            resolve(response.data.data.redes);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     }
   },

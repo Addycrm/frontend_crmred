@@ -6,87 +6,76 @@
                 <app-collapse accordion>
                     <!-- FILTRO GENERAL -->
                     <app-collapse-item title="FILTRO GENERAL" :isVisible="true">
-                        <div class="d-flex flex-wrap container__filter">
+                        <div class=" container__filter">
                             <span class="span-title">FILTRO GENERAL</span>
                             <!-- NOMBRE -->
-                            <b-col cols="12" md="3">
-                                <b-form-group label="Nombre inmueble">
-                                    <b-form-input :value="query.titulo_inmueble"
-                                        @change="setQuery('titulo_inmueble', $event)" placeholder="Buscar..." name="search"
-                                        type="search" trim />
-                                </b-form-group>
-                            </b-col>
+                            <b-row class="m-1">
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="Nombre inmueble">
+                                        <b-form-input v-model="query.titulo_inmueble" placeholder="Buscar..."
+                                            name="search" type="search" trim />
+                                    </b-form-group>
+                                </b-col>
 
-                            <b-col cols="12" md="3">
-                                <b-form-group label="N° de Matricula">
-                                    <b-form-input :value="query.matricula_inmobiliaria"
-                                        @change="setQuery('matricula_inmobiliaria', $event)" placeholder="Buscar..."
-                                        name="search" type="search" trim />
-                                </b-form-group>
-                            </b-col>
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="N° de Matricula">
+                                        <b-form-input v-model="query.matricula_inmobiliaria" placeholder="Buscar..."
+                                            name="search" type="search" trim />
+                                    </b-form-group>
+                                </b-col>
 
-                            <!-- AGENTE -->
-                            <b-col cols="12" md="3">
-                                <b-form-group label="Agente">
-                                    <v-select v-model="query.created_by" :options="storeConfig.agentes"
-                                        :reduce="(type) => type.id" label="primer_nombre" />
-                                </b-form-group>
-                            </b-col>
-                            <!-- ESTADO INMUEBLE -->
-                            <b-col cols="12" md="3">
-                                <b-form-group label="Estado del Inmueble">
-                                    <v-select v-model="query.state_fisico" :options="storeConfig.state_fisico"
-                                        :reduce="(type) => type.id" label="name" />
-                                </b-form-group>
-                            </b-col>
-                            <!-- TIPO INMUEBLE -->
-                            <b-col cols="12" md="3">
-                                <b-form-group label="Tipo de Inmueble">
-                                    <v-select v-model="query.tipo_inmueble" :options="storeConfig.property_type"
-                                        :reduce="(type) => type.id" label="tipo" />
-                                </b-form-group>
-                            </b-col>
-                            <!-- TIPO NEGOCIO -->
-                            <b-col cols="12" md="4" lg="3">
-                                <!-- <b-form-group label="Tipo de Negocio">
-                  <v-select v-model="query.tipo_negocio" :options="storeConfig.business_type" :reduce="(type) => type.id"
-                    label="tipo" />
-                </b-form-group> -->
-                                <b-form-group label="Tipo de negocio" class="mb-1">
-                                    <div class="container-filter__checkbox">
-                                        <b-form-checkbox v-model="query.tipo_negocio" style="margin-top: 6px;" value="1">
-                                            Venta
-                                        </b-form-checkbox>
-                                        <b-form-checkbox v-model="query.tipo_negocio" style="margin-top: 6px;" value="2">
-                                            Alquiler
-                                        </b-form-checkbox>
-                                        <b-form-checkbox v-model="query.tipo_negocio" style="margin-top: 6px;" value="3">
-                                            Venta - Alquiler
-                                        </b-form-checkbox>
+                                <!-- AGENTE -->
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="Agente">
+                                        <v-select v-model="query.created_by" :options="storeConfig.agentes"
+                                            :reduce="(type) => type.id" label="primer_nombre" />
+                                    </b-form-group>
+                                </b-col>
+                                <!-- ESTADO INMUEBLE -->
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="Estado del Inmueble">
+                                        <v-select v-model="query.state_fisico" :options="storeConfig.state_fisico"
+                                            :reduce="(type) => type.id" label="name" />
+                                    </b-form-group>
+                                </b-col>
+                                <!-- TIPO INMUEBLE -->
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="Tipo de Inmueble">
+                                        <v-select v-model="query.tipo_inmueble" :options="storeConfig.property_type"
+                                            :reduce="(type) => type.id" label="tipo" />
+                                    </b-form-group>
+                                </b-col>
+                                <!-- TIPO NEGOCIO -->
+                                <b-col cols="12" md="3">
+                                    <b-form-group label="Tipo de negocio">
+                                        <v-select v-model="query.tipo_negocio" :options="storeConfig.business_type"
+                                            :reduce="(type) => type.id" label="tipo" />
+                                    </b-form-group>
+                                </b-col>
+                                <b-col cols="12" sm="12" md="6">
+                                    <div class="text-center ">
+                                        Rango de precio
                                     </div>
-                                </b-form-group>
-                            </b-col>
+                                    <b-row>
+                                        <b-col>
+                                            <b-input-group prepend="$" append="COP">
+                                                <Cleave id="price_min" v-model="query.min_price" placeholder="minimo"
+                                                    class="form-control" :raw="true" :options="numberFormat">
+                                                </Cleave>
+                                            </b-input-group>
+                                        </b-col>
+                                        <b-col>
+                                            <b-input-group prepend="$" append="COP">
+                                                <Cleave id="price_max" v-model="query.max_price" placeholder="maximo"
+                                                    class="form-control" :raw="true" :options="numberFormat">
+                                                </Cleave>
+                                            </b-input-group>
+                                        </b-col>
+                                    </b-row>
+                                </b-col>
+                            </b-row>
+
                             <!-- RANGO DE PRECIOS -->
-                            <b-col cols="12" md="4" lg="3" class="d-flex flex-wrap container_range-price">
-                                <b-form-group label="Rango de precios">
-                                    <b-input-group prepend="$" class="">
-                                        <cleave id="number" v-model="min_price" class="form-control " :options="{
-                                            numeral: true,
-                                            numericOnly: true,
-                                            numeralThousandsGroupStyle: 'thousand',
-                                        }" placeholder="valor mínimo" />
-                                    </b-input-group>
-                                    <b-input-group prepend="$" class="">
-                                        <cleave id="number" v-model="max_price" class="form-control "
-                                            placeholder="valor máximo" :options="{
-                                                numeral: true,
-                                                numericOnly: true,
-                                                numeralThousandsGroupStyle: 'thousand',
-                                                onValueChanged: (e) => searchRange(e)
-                                            }" />
-                                    </b-input-group>
-                                </b-form-group>
-                            </b-col>
                         </div>
                     </app-collapse-item>
                     <!-- FILTROS POR UBICACION -->
@@ -97,15 +86,15 @@
                             <b-col cols="12" md="4" sm="12" v-for="(value, prop) in ubicaciones" :key="prop">
                                 <b-form-group :label="value.props.label">
                                     <v-select v-model="ubicaciones[prop].value" label="name" @input="() => {
-                                        value.props.api ? resetUbicacion(prop) : null;
-                                    }
-                                        " :reduce="(type) => type.id" :options="prop == 'pais_id'
-        ? storeConfig.country
-        : ubicaciones[prop].options
-        " :disabled="prop == 'pais_id'
-        ? storeConfig.country.length == 0
-        : ubicaciones[prop].options.length == 0
-        " />
+                        value.props.api ? resetUbicacion(prop) : null;
+                    }
+                        " :reduce="(type) => type.id" :options="prop == 'pais_id'
+                        ? storeConfig.country
+                        : ubicaciones[prop].options
+                        " :disabled="prop == 'pais_id'
+                        ? storeConfig.country.length == 0
+                        : ubicaciones[prop].options.length == 0
+                        " />
                                 </b-form-group>
                             </b-col>
                         </div>
@@ -116,25 +105,34 @@
                             <span class="span-title">FILTRO CÓDIGO</span>
                             <b-col cols="12" md="3">
                                 <b-form-group label="Código Control Panel">
-                                    <b-form-input :value="query.codigo_externo" @change="setQuery('codigo_externo', $event)"
-                                        placeholder="Código..." name="code" type="text" trim />
+                                    <b-form-input v-model="query.codigo_externo" placeholder="Código..." name="code"
+                                        type="text" trim />
                                 </b-form-group>
                             </b-col>
                             <b-col cols="12" md="3">
-                                <b-form-group label="Código HOMIUP">
-                                    <b-form-input :value="query.id" @change="setQuery('id', $event)" placeholder="Código..."
-                                        name="code" type="text" trim />
+                                <b-form-group label="Código CRMRED">
+                                    <b-form-input v-model="query.id" placeholder="Código..." name="code" type="text"
+                                        trim />
                                 </b-form-group>
                             </b-col>
                             <b-col cols="12" md="3">
                                 <b-form-group label="Código Portal">
-                                    <b-form-input :value="query.code_portal" @change="setQuery('code_portal', $event)"
-                                        placeholder="Código..." name="code" type="text" trim />
+                                    <b-form-input v-model="query.code_portal" placeholder="Código..." name="code"
+                                        type="text" trim />
                                 </b-form-group>
                             </b-col>
                         </div>
                     </app-collapse-item>
                 </app-collapse>
+                <div class="text-center ">
+                        <strong>Por favor, darle click en el boton de abajo para buscar tus inmuebles</strong>
+                    </div>
+                <div class="d-flex flex-wrap justify-content-center">
+
+                    <b-button variant="relief-warning" @click="getInmuebles"> <feather-icon icon="HomeIcon"
+                            class="mr-50" />
+                        <span class="align-middle">Buscar inmuebles relacionados con el filtro</span></b-button>
+                </div>
             </div>
             <b-row class="py-1 m-n10" align-v="end">
                 <b-col cols="auto" class="p-10">
@@ -158,17 +156,17 @@
                     <div class="p-10 sm-3 col-md-auto" :style="{ width: '12em' }">
                         <b-form-group label="Orden por precio" label-size="sm" class="mb-0">
                             <v-select v-model="query.filterPrice" :reduce="(type) => type.value"
-                                :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'" :options="optionsType" label="text" />
-                                .
+                                :dir="$store.state.appConfig.isRTL ? 'rtl' : 'ltr'" :options="optionsType"
+                                label="text" />
                         </b-form-group>
                     </div>
                 </div>
                 <div v-if="!elegir" class="d-flex flex-column col-sm-12 col-md-auto align-items-center px-0">
                     <div class="col-auto p-0">
                         <legend class="bv-no-focus-ring col-form-label pt-0  col-form-label-sm" style="margin-left:7px;
-                            margin-bottom: 2px;
-                        ">Vistas</legend>
-                        <div class="d-flex flex-wrap" style="{ padding: 12px; margin-bottom: 12px }">
+            margin-bottom: 2px;
+          ">Vistas</legend>
+                        <div class="d-flex flex-wrap">
                             <!-- BOTON VISTA DETAIL LIST -->
                             <b-col cols="auto" class="px-10 pb-10 pt-0 d-flex showDisable" v-b-tooltip.hover
                                 title="Vista detalle">
@@ -177,11 +175,11 @@
                                     :class="listStyle == 'detail-list' ? 'pointer-events-none' : null"
                                     class="btn-icon d-flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
-                                        width: '1.25em',
-                                        height: '1em',
-                                        margin: '-0.5em',
-                                        fontSize: '18px',
-                                    }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        fontSize: '18px',
+                    }" fill="currentColor">
                                         <path
                                             d="M88 48C101.3 48 112 58.75 112 72V120C112 133.3 101.3 144 88 144H40C26.75 144 16 133.3 16 120V72C16 58.75 26.75 48 40 48H88zM480 64C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H192C174.3 128 160 113.7 160 96C160 78.33 174.3 64 192 64H480zM480 224C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H192C174.3 288 160 273.7 160 256C160 238.3 174.3 224 192 224H480zM480 384C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416C160 398.3 174.3 384 192 384H480zM16 232C16 218.7 26.75 208 40 208H88C101.3 208 112 218.7 112 232V280C112 293.3 101.3 304 88 304H40C26.75 304 16 293.3 16 280V232zM88 368C101.3 368 112 378.7 112 392V440C112 453.3 101.3 464 88 464H40C26.75 464 16 453.3 16 440V392C16 378.7 26.75 368 40 368H88z" />
                                     </svg>
@@ -195,28 +193,29 @@
                                     :class="listStyle == 'table' ? 'pointer-events-none' : null"
                                     class="btn-icon d-flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
-                                        width: '1.25em',
-                                        height: '1em',
-                                        margin: '-0.5em',
-                                        fontSize: '18px',
-                                    }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        fontSize: '18px',
+                    }" fill="currentColor">
                                         <path
                                             d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z" />
                                     </svg>
                                 </b-button>
                             </b-col>
                             <!-- BOTON VISTA GRID -->
-                            <b-col cols="auto" class="px-10 pb-10 pt-0 d-flex" v-b-tooltip.hover title="Vista en tarjeta">
+                            <b-col cols="auto" class="px-10 pb-10 pt-0 d-flex" v-b-tooltip.hover
+                                title="Vista en tarjeta">
                                 <b-button @click="viewList('grid')"
                                     :variant="listStyle == 'grid' ? 'primary' : 'outline-primary'"
                                     :class="listStyle == 'grid' ? 'pointer-events-none' : null"
                                     class="btn-icon d-flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" :style="{
-                                        width: '1.25em',
-                                        height: '1em',
-                                        margin: '-0.5em',
-                                        fontSize: '18px',
-                                    }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        fontSize: '18px',
+                    }" fill="currentColor">
                                         <path
                                             d="M384 96V224H256V96H384zm0 192V416H256V288H384zM192 224H64V96H192V224zM64 288H192V416H64V288zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z" />
                                     </svg>
@@ -229,11 +228,11 @@
                                     :class="listStyle == 'map-list' ? 'pointer-events-none' : null"
                                     class="btn-icon d-flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" :style="{
-                                        width: '1.25em',
-                                        height: '1em',
-                                        margin: '-0.5em',
-                                        fontSize: '18px',
-                                    }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        fontSize: '18px',
+                    }" fill="currentColor">
                                         <path
                                             d="M384 192c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192z" />
                                     </svg>
@@ -245,15 +244,16 @@
                 <b-col class="p-0"></b-col>
 
                 <template v-if="!elegir" class="d-flex flex-wrap justify-content-center">
-                    <div class="p-10 d-flex col-sm-6 justify-content-center col-md-auto" v-if="$can('create', 'inmuebles')">
+                    <div class="p-10 d-flex col-sm-6 justify-content-center col-md-auto"
+                        v-if="$can('create', 'inmuebles')">
                         <b-button variant="success" class="d-inline-flex align-items-center " @click="addInmueble">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" :style="{
-                                width: '1.25em',
-                                height: '1em',
-                                margin: '-0.5em',
-                                marginRight: '0.8rem',
-                                fontSize: '1em',
-                            }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        marginRight: '0.8rem',
+                        fontSize: '1em',
+                    }" fill="currentColor">
                                 <path
                                     d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z" />
                             </svg>
@@ -264,12 +264,12 @@
                         v-if="$can('exportar_inmuebles_excel', 'inmuebles')">
                         <b-button variant="primary" class="d-inline-flex align-items-center" @click="exportInmueble()">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" :style="{
-                                width: '1.25em',
-                                height: '1em',
-                                margin: '-0.5em',
-                                marginRight: '0.8rem',
-                                fontSize: '1em',
-                            }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        marginRight: '0.8rem',
+                        fontSize: '1em',
+                    }" fill="currentColor">
                                 <path
                                     d="M384 128h-128V0L384 128zM256 160H384v304c0 26.51-21.49 48-48 48h-288C21.49 512 0 490.5 0 464v-416C0 21.49 21.49 0 48 0H224l.0039 128C224 145.7 238.3 160 256 160zM255 295L216 334.1V232c0-13.25-10.75-24-24-24S168 218.8 168 232v102.1L128.1 295C124.3 290.3 118.2 288 112 288S99.72 290.3 95.03 295c-9.375 9.375-9.375 24.56 0 33.94l80 80c9.375 9.375 24.56 9.375 33.94 0l80-80c9.375-9.375 9.375-24.56 0-33.94S264.4 285.7 255 295z" />
                             </svg>
@@ -280,12 +280,12 @@
                         v-if="$can('exportar_inmuebles_excel', 'inmuebles')">
                         <b-button variant="primary" class="d-inline-flex align-items-center" @click="modalFile = true">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" :style="{
-                                width: '1.25em',
-                                height: '1em',
-                                margin: '-0.5em',
-                                marginRight: '0.8rem',
-                                fontSize: '15px',
-                            }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                        margin: '-0.5em',
+                        marginRight: '0.8rem',
+                        fontSize: '15px',
+                    }" fill="currentColor">
                                 <path
                                     d="M384 352v64c0 17.67-14.33 32-32 32H96c-17.67 0-32-14.33-32-32v-64c0-17.67-14.33-32-32-32s-32 14.33-32 32v64c0 53.02 42.98 96 96 96h256c53.02 0 96-42.98 96-96v-64c0-17.67-14.33-32-32-32S384 334.3 384 352zM201.4 9.375l-128 128c-12.51 12.51-12.49 32.76 0 45.25c12.5 12.5 32.75 12.5 45.25 0L192 109.3V320c0 17.69 14.31 32 32 32s32-14.31 32-32V109.3l73.38 73.38c12.5 12.5 32.75 12.5 45.25 0s12.5-32.75 0-45.25l-128-128C234.1-3.125 213.9-3.125 201.4 9.375z" />
                             </svg>
@@ -298,7 +298,8 @@
                             <!-- <img :src="imgExcel" class="img-fluid d-block mx-auto mt-1" alt="" /> -->
 
                             <template #footer>
-                                <b-overlay :show="overlay" class="d-flex flex-wrap justify-content-center" style="gap: 6px">
+                                <b-overlay :show="overlay" class="d-flex flex-wrap justify-content-center"
+                                    style="gap: 6px">
                                     <b-button variant="success" @click="importExcel" :disabled="!import_file">
                                         Subir archivo
                                     </b-button>
@@ -343,25 +344,25 @@
                     m-10
                   " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
-                                            width: '1.25em',
-                                            height: '1em',
-                                        }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                    }" fill="currentColor">
                                             <path
                                                 d="M490.3 40.4C512.2 62.27 512.2 97.73 490.3 119.6L460.3 149.7L362.3 51.72L392.4 21.66C414.3-.2135 449.7-.2135 471.6 21.66L490.3 40.4zM172.4 241.7L339.7 74.34L437.7 172.3L270.3 339.6C264.2 345.8 256.7 350.4 248.4 353.2L159.6 382.8C150.1 385.6 141.5 383.4 135 376.1C128.6 370.5 126.4 361 129.2 352.4L158.8 263.6C161.6 255.3 166.2 247.8 172.4 241.7V241.7zM192 63.1C209.7 63.1 224 78.33 224 95.1C224 113.7 209.7 127.1 192 127.1H96C78.33 127.1 64 142.3 64 159.1V416C64 433.7 78.33 448 96 448H352C369.7 448 384 433.7 384 416V319.1C384 302.3 398.3 287.1 416 287.1C433.7 287.1 448 302.3 448 319.1V416C448 469 405 512 352 512H96C42.98 512 0 469 0 416V159.1C0 106.1 42.98 63.1 96 63.1H192z" />
                                         </svg>
                                         Editar
                                     </b-button>
-                                    <b-button v-b-tooltip.hover @click="inmuebleDetail(props.row)" title="Ver Detalles" pill
-                                        variant="outline-primary" class="
+                                    <b-button v-b-tooltip.hover @click="inmuebleDetail(props.row)" title="Ver Detalles"
+                                        pill variant="outline-primary" class="
                     d-flex
                     justify-content-center
                     align-items-center
                     m-10
                   " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" :style="{
-                                            width: '1.25em',
-                                            height: '1em',
-                                        }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                    }" fill="currentColor">
                                             <path
                                                 d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z" />
                                         </svg>
@@ -369,15 +370,15 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Ver Ficha" pill variant="outline-primary"
                                         v-if="$can('read', 'inmuebles')" @click="modalFicha(props.row)" class="
-                                            d-flex
-                                            justify-content-center
-                                            align-items-center
-                                            m-10
-                                        " size="sm">
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    m-10
+                  " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" :style="{
-                                            width: '1.25em',
-                                            height: '1em',
-                                        }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                    }" fill="currentColor">
                                             <path
                                                 d="M224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM96 224c17.67 0 32 14.33 32 32S113.7 288 96 288S64 273.7 64 256S78.33 224 96 224zM318.1 439.5C315.3 444.8 309.9 448 304 448h-224c-5.9 0-11.32-3.248-14.11-8.451c-2.783-5.201-2.479-11.52 .7949-16.42l53.33-80C122.1 338.7 127.1 336 133.3 336s10.35 2.674 13.31 7.125L160 363.2l45.35-68.03C208.3 290.7 213.3 288 218.7 288s10.35 2.674 13.31 7.125l85.33 128C320.6 428 320.9 434.3 318.1 439.5zM256 0v128h128L256 0z" />
                                         </svg>
@@ -385,15 +386,15 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Generar informe" pill variant="outline-primary"
                                         @click="modalInforme(props.row)" class="
-                                            d-flex
-                                            justify-content-center
-                                            align-items-center
-                                            m-10
-                                        " size="sm">
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    m-10
+                  " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
-                                            width: '1.25em',
-                                            height: '1em',
-                                        }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                    }" fill="currentColor">
                                             <path
                                                 d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 0v64h64V96H64zm384 0H192v64H448V96zM64 224v64h64V224H64zm384 0H192v64H448V224zM64 352v64h64V352H64zm384 0H192v64H448V352z" />
                                         </svg>
@@ -401,15 +402,15 @@
                                     </b-button>
                                     <b-button v-b-tooltip.hover title="Cambiar estado publicación" pill
                                         variant="outline-primary" @click="openModalStateProperty(props.row)" class="
-                                        d-flex
-                                        justify-content-center
-                                        align-items-center
-                                        m-10
-                                    " size="sm">
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    m-10
+                  " size="sm">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" :style="{
-                                            width: '1.25em',
-                                            height: '1em',
-                                        }" fill="currentColor">
+                        width: '1.25em',
+                        height: '1em',
+                    }" fill="currentColor">
                                             <path
                                                 d="M105.1 202.6c7.7-21.8 20.2-42.3 37.8-59.8c62.5-62.5 163.8-62.5 226.3 0L386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H463.5c0 0 0 0 0 0h.4c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0C73.2 122 55.6 150.7 44.8 181.4c-5.9 16.7 2.9 34.9 19.5 40.8s34.9-2.9 40.8-19.5zM39 289.3c-5 1.5-9.8 4.2-13.7 8.2c-4 4-6.7 8.8-8.1 14c-.3 1.2-.6 2.5-.8 3.8c-.3 1.7-.4 3.4-.4 5.1V448c0 17.7 14.3 32 32 32s32-14.3 32-32V396.9l17.6 17.5 0 0c87.5 87.4 229.3 87.4 316.7 0c24.4-24.4 42.1-53.1 52.9-83.7c5.9-16.7-2.9-34.9-19.5-40.8s-34.9 2.9-40.8 19.5c-7.7 21.8-20.2 42.3-37.8 59.8c-62.5 62.5-163.8 62.5-226.3 0l-.1-.1L125.6 352H176c17.7 0 32-14.3 32-32s-14.3-32-32-32H48.4c-1.6 0-3.2 .1-4.8 .3s-3.1 .5-4.6 1z" />
                                         </svg>
@@ -425,11 +426,11 @@
                                         <b-row class="m-0">
                                             <b-col class="p-10">
                                                 <ul class="portales-content-table-info-inmueble">
-                                                    <li class="active outline cursor-pointer" v-b-tooltip.hover.left.topleft
-                                                        title="Red Fincaraiz">
+                                                    <li class="active outline cursor-pointer"
+                                                        v-b-tooltip.hover.left.topleft title="Red Fincaraiz">
                                                         <a :href="(props.row.slug) ? `https://redfincaraiz.com/properties/${props.row.slug}` : 'https://redfincaraiz.com'"
                                                             target="_blank">
-                                                            <span class="state-portal sync">
+                                                            <span class="state-portal publicado">
                                                             </span>
                                                             <img src="@/assets/images/logo/LOGO-RED-FINCA-RAIZ.png"
                                                                 style="height: 40px;width: 70px;padding: 4px;" />
@@ -437,43 +438,52 @@
                                                         </a>
                                                     </li>
                                                     <template v-for="item in appPortal.portales">
-                                                        <li v-b-tooltip.hover.left.topleft :title="item.name" :key="item.id"
-                                                            v-if="item.state === 'active'" class="outline cursor-pointer">
-                                                            <template v-if="!statePortal(
-                                                                props.row.portale_state_inmueble,
-                                                                item,
-                                                                props.row.portales_codigo_response
-                                                            )
-                                                                ">
+                                                        <li v-b-tooltip.hover.left.topleft :title="item.name"
+                                                            :key="item.id" v-if="item.state === 'active'"
+                                                            class="outline cursor-pointer">
+                                                                    <template v-if="!statePortal(
+                                                                            props.row.portale_state_inmueble,
+                                                                            item,
+                                                                            props.row.portales_codigo_response
+                                                                        )
+                                                                    ">
                                                                 <span @click="
                                                                     syncPortal('create', {
-                                                                        inmueble: props.row,
-                                                                        portal: item,
+                                                                        property: props.row,
+                                                                        portal: item.id,
                                                                         slug: item.slug,
                                                                     })
                                                                     " class="state-portal"></span>
                                                             </template>
                                                             <template v-else>
                                                                 <span @click="portalesState(item, props.row)"
-                                                                    class="state-portal sync"></span>
+                                                                    :class="getStatePortalProperty(item, props.row.portale_state_inmueble)"></span>
                                                             </template>
                                                             <img :src="item.image" style="height: 40px" />
                                                         </li>
                                                     </template>
 
                                                     <div class="item_buttons item_buttons-outline">
+                                                        <!-- <button class="btn btn-primary btn-sm" @click="publicationMasive(props.row)">
+                              Publicación<br>
+                              Masiva
+                            </button>
+                            <button class="btn btn-warning btn-sm" @click="DepublicationMasive(props.row)">
+                              Despublicación<br>
+                              Masiva
+                            </button> -->
                                                         <b-dropdown variant="primary" class="container_dropdown"
                                                             id="dropdown-1" dropright>
                                                             <template #button-content>
                                                                 <feather-icon icon="Share2Icon" /> Compartir Portales
                                                             </template>
-                                                            <b-dropdown-item variant="success"
+                                                            <b-dropdown-item v-if="props.row.portale_state_inmueble.length == 0" variant="success"
                                                                 @click="publicationMasive(props.row)">Publicación
                                                                 Masiva</b-dropdown-item>
-                                                            <b-dropdown-item variant="warning"
+                                                            <!-- <b-dropdown-item v-if="props.row.portale_state_inmueble.length > 0" variant="warning"
                                                                 @click="DepublicationMasive(props.row)">Despublicación
-                                                                Masiva</b-dropdown-item>
-                                                            <b-dropdown-item
+                                                                Masiva</b-dropdown-item> -->
+                                                            <b-dropdown-item v-if="props.row.portale_state_inmueble.length > 0"
                                                                 @click="UpdatePortalMasive(props.row)">Actualización
                                                                 Masiva</b-dropdown-item>
                                                         </b-dropdown>
@@ -501,15 +511,15 @@
                             style="width: 100%; height: 800px">
                             <GmapMarker v-for="(inmueble, index) in inmueblesMap" :key="index" ref="myMarker"
                                 :clickable="true" :position="google &&
-                                    new google.maps.LatLng(inmueble.latitud, inmueble.longitud)
-                                    " @click="inmueble.mapOpen = !inmueble.mapOpen">
+                        new google.maps.LatLng(inmueble.latitud, inmueble.longitud)
+                        " @click="inmueble.mapOpen = !inmueble.mapOpen">
                                 <gmap-info-window :options="infoPopUp({
-                                    id: inmueble.id,
-                                    name: inmueble.titulo_inmueble,
-                                    price: inmueble.rental_price || inmueble.selling_price,
-                                    image: inmueble.inmueble_imagenes,
-                                })
-                                    " :opened="inmueble.mapOpen" @closeclick="inmueble.mapOpen = false" />
+                        id: inmueble.id,
+                        name: inmueble.titulo_inmueble,
+                        price: inmueble.rental_price || inmueble.selling_price,
+                        image: inmueble.inmueble_imagenes,
+                    })
+                        " :opened="inmueble.mapOpen" @closeclick="inmueble.mapOpen = false" />
                             </GmapMarker>
                         </GmapMap>
                     </b-col>
@@ -534,7 +544,7 @@
 
             <transition name="fade">
                 <v-modal v-if="modalState" @close="modalState = false" :titulo="modal.type == 'agregar' ? 'Agregar Inmueble' : 'Editar Inmueble'
-                    " size="lg">
+                        " size="lg">
                     <component is="FormInmueble" :prop="modal" @closeModalInmueble="closeModalInmueble"
                         @reloadPage="reloadPage" />
                 </v-modal>
@@ -547,8 +557,8 @@
             </transition>
 
             <transition name="slide-to-left">
-                <v-modal v-if="sideBarState" @close="clearTable" ref="modalInmueble" titulo="Detalle del inmueble" sideBar
-                    size="md">
+                <v-modal v-if="sideBarState" @close="clearTable" ref="modalInmueble" titulo="Detalle del inmueble"
+                    sideBar size="md">
                     <component is="DetailsInmuebles" :detail="rowSelected" />
                 </v-modal>
             </transition>
@@ -563,7 +573,7 @@
                 </v-modal>
             </transition>
             <transition name="fade">
-                <v-modal v-if="stateModalInforme" @close="stateModalInforme = false" titulo="Ficha del Inmueble">
+                <v-modal v-if="stateModalInforme" @close="stateModalInforme = false" titulo="Informe del inmueble">
                     <component is="modalInforme" :inmueble="rowSelected" />
                 </v-modal>
             </transition>
@@ -593,6 +603,7 @@
                 </v-modal>
             </transition>
             <subportales-component ref="subportalesComponent" />
+
         </div>
     </div>
 </template>
@@ -606,6 +617,7 @@ import { imgValidateURL } from "@/libs/helpers";
 import { VBModal } from "bootstrap-vue";
 import ModalFicha from "../components/ModalFicha";
 import statePortales from "../components/statePortales";
+
 
 import mixinPortales from "@/views/apps/inmuebles/mixinPortales";
 import mixinApis from "@/views/componente/mixinApis";
@@ -639,11 +651,10 @@ import loadingBar from "@/views/componente/loadingBar.vue";
 //desplegables
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'
 import AppCollapseItem from '@core/components/app-collapse/AppCollapseItem.vue'
-import { HELPERS } from "@/libs/helpers";
 
 export default {
     name: "TableInmueble",
-    mixins: [mixinApis, mixinPortales, mixinConfig],
+    mixins: [mixinApis, mixinPortales],
     components: {
         AppCollapse,
         AppCollapseItem,
@@ -720,6 +731,13 @@ export default {
             currentPage: 1,
             import_file: null,
             modalFile: false,
+            numberFormat: {
+                numeralPositiveOnly: true,
+                numeral: true,
+                numeralDecimalMark: ",",
+                delimiter: ".",
+            },
+
             query: {
                 titulo_inmueble: null,
                 matricula_inmobiliaria: null,
@@ -744,6 +762,7 @@ export default {
             },
             portal: {
                 state: false,
+                state_portal: null,
                 current: {},
                 inmueble: {},
             },
@@ -817,6 +836,10 @@ export default {
                 { text: 'Ascendente', value: 'ASC' },
                 { text: 'Descendente', value: 'DESC' },
             ],
+            states_portal: {
+                publicado: "",
+                pendiente: ""
+            }
         }
     },
     computed: {
@@ -900,7 +923,7 @@ export default {
         },
     },
     created() {
-        this.watchQuerys();
+        this.getInmuebles();
     },
     mounted() {
         this.watchUbicaciones();
@@ -923,6 +946,7 @@ export default {
         //   });
     },
     methods: {
+
         reloadPage() {
             this.getInmuebles(this.actualPage)
         },
@@ -1087,11 +1111,13 @@ export default {
         },
         // Obtener Inmuebles
         async getInmuebles(a = 1) {
+        console.log(1)
             // scroll a la pantalla
             window.scrollTo({
                 top: 0,
                 behavior: "smooth",
             });
+            console.log(this.query)
             this.actualPage = a
             this.overlay = true;
             let params = { page: a };
@@ -1117,16 +1143,16 @@ export default {
             this.overlay = false;
         },
         watchQuerys() {
+            console.log("watchQuerys")
             let keys = Object.keys(this.ubicaciones);
             if (this.startApiInmuebles) {
-                this.getInmuebles()
                 this.startApiInmuebles = false
             }
             for (let prop in this.query) {
                 this.$watch(
                     () => this.query[prop],
                     (a) => {
-                        if (!keys.includes(prop)) this.getInmuebles();
+                        if (!keys.includes(prop));
                     }
                 );
             }
@@ -1138,26 +1164,32 @@ export default {
                     (codigo) => {
                         Object.assign(this.query, { [prop]: codigo });
 
-                        this.getInmuebles().then(() => {
-                            let keys = Object.keys(this.ubicaciones);
-                            if (prop != keys[keys.length - 1] && codigo != null) {
-                                let index = keys.indexOf(prop);
-                                this.getUbicacion({
-                                    codigo,
-                                    prop: keys[index + 1],
-                                    api: this.ubicaciones[prop].props.api,
-                                    name: this.ubicaciones[prop].props.name,
-                                });
-                            }
-                        });
+
+                        let keys = Object.keys(this.ubicaciones);
+                        if (prop != keys[keys.length - 1] && codigo != null) {
+                            let index = keys.indexOf(prop);
+                            this.getUbicacion({
+                                codigo,
+                                prop: keys[index + 1],
+                                api: this.ubicaciones[prop].props.api,
+                                name: this.ubicaciones[prop].props.name,
+                            });
+                        }
+
                     }
                 );
             }
         },
 
         portalesState(current, inmueble) {
-            if (HELPERS.MIX_PROPPIT != current.slug) {
-                Object.assign(this.portal, { state: true, current, inmueble });
+            const state_property = inmueble.portale_state_inmueble;
+            const { id } = current;
+
+            const state_portal = state_property.find(state => state.id_portal === id);
+
+            console.log(state_portal)
+            if (process.env.MIX_PROPPIT != current.slug) {
+                Object.assign(this.portal, { state: true, current, inmueble, state_portal })
             } else {
                 this.$refs.subportalesComponent.info(
                     inmueble.subportalescode,
@@ -1279,6 +1311,7 @@ export default {
 
         // Select de ubicaciones (pasi, departamento, ciudad)
         resetUbicacion(prop) {
+            console.log("resetUbicacion");
             let keys = Object.keys(this.ubicaciones),
                 index = keys.indexOf(prop);
             if (prop) {
@@ -1291,6 +1324,7 @@ export default {
             }
         },
         async getUbicacion({ codigo, api, name, prop }) {
+            console.log("getUbicacion")
             await this.$store
                 .dispatch(api, { codigo })
                 .then((response) => {
@@ -1317,17 +1351,7 @@ export default {
             location.hash = "";
         },
 
-        max_price(value) {
-            if (!value) {
-                this.searchRange();
-            }
-        },
 
-        min_price(value) {
-            if (!value) {
-                this.searchRange();
-            }
-        },
     },
 };
 </script>
@@ -1344,7 +1368,6 @@ export default {
 </style>
 
 <style scoped lang="css">
-
 .bounce-enter-active {
     animation: bounce-in 0.5s;
 }
@@ -1457,8 +1480,12 @@ div.pac-container {
     z-index: 1;
 }
 
-.portales-content-table-info-inmueble li .state-portal.sync {
+.portales-content-table-info-inmueble li .state-portal.publicado {
     outline: 3px solid #28c76f;
+    outline-offset: -3px;
+}
+.portales-content-table-info-inmueble li .state-portal.pendiente {
+    outline: 3px solid orange;
     outline-offset: -3px;
 }
 

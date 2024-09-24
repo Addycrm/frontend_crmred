@@ -39,8 +39,11 @@ import ToastificationContent from '@core/components/toastification/Toastificatio
 
 export default {
   mounted() {
+    this.$store
+    .dispatch("appConfiguracion/getOptionsSelect")
     window.onresize = (a) => {
       this.$store.commit('appConfiguracion/WINDOW_RESIZE', window.innerWidth);
+     
     }
 
     axiosInterceptors(axiosIns, axiosToken)
@@ -74,6 +77,8 @@ export default {
     ScrollToTop,
     BAvatar,
   },
+
+
   // ! We can move this computed: layout & contentLayoutType once we get to use Vue 3
   // Currently, router.currentRoute is not reactive and doesn't trigger any change
   watch: {

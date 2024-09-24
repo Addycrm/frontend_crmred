@@ -18,16 +18,15 @@
 </template>
 
 <script>
-import { ROLES_VISITANTE } from "@/libs/config/config.js";
 import LayoutVertical from '@core/layouts/layout-vertical/LayoutVertical.vue'
 import AppCustomizer from '@core/layouts/components/app-customizer/AppCustomizer.vue'
-import { computed } from "@vue/composition-api";
 import { $themeConfig } from '@themeConfig'
 import mixinApis from '@/views/componente/mixinApis'
 
 export default {
   mixins: [mixinApis],
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     AppCustomizer,
     LayoutVertical,
   },
@@ -37,15 +36,14 @@ export default {
     }
   },
   data() {
-
     return {
       showCustomizer: $themeConfig.layout.customizer,
     }
   },
   computed: {
     overlay() {
-      return this.$store.state.appConfiguracion.overlay;
-    }
+      return this.$store.state.appConfiguracion.overlay
+    },
   },
 }
 </script>
